@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+aside {
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 5px;
+    z-index: 1000;
+    background-color: #333;
+    /* text-indent: -9999px; */
+}
+
+.toolbar {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translate(0, -50%);
+}
+
+.toolbar_person {
+    width: 35px;
+    height: 30px;
+    background-color: #333;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.toolbar div a {
+    color: #fff;
+}
+
+.toolbar div a i {
+    font-size: 20px;
+}
+
+.toolbar_person {
+    margin-bottom: 2px;
+}
+
+.toolbar_cart {
+    margin-bottom: 2px;
+}
+
+aside .user {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    right: -35px;
+    border-radius: 3px 0 0 3px;
+    color: #fff;
+    z-index: 1;
+}
+
+aside .current {
+    background-color: red;
+}
+
+.toolbar .cart {
+    top: 32px;
+    right: -75px;
+}
+.toolbar_scroll{
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+.scroll{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    bottom: 0px;
+    right: -35px;
+    text-align: center;
+    border-radius: 3px 0 0 3px;
+    z-index: 1;
+    background-color: #000;
+}
+.scroll a{
+     color: #fff;
+}
+.toolbar_chat{
+    height: 40px;
+    line-height: 40px;
+    width: 230px;
+    position: absolute;
+    bottom: 0;
+    right: 105px;
+    border-radius: 5px;
+    background-color: #0072ff;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+.toolbar_chat i{
+    margin-right: 20px;
+    font-size: 20px;
+}
+.chatBox{
+    width: 320px;
+    height: 480px;
+}
