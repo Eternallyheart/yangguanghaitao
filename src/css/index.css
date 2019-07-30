@@ -116,11 +116,8 @@ body {
 .index_content .flash_sale {
     overflow: hidden;
     margin-bottom: 20px;
-}
-
-.index_content .flash_sale {
     padding: 20px;
-    padding-top:0;
+    padding-top: 0;
     background-color: #fff;
 }
 
@@ -158,66 +155,214 @@ body {
     padding: 0 20px;
 }
 
-.index_content .day_new h2{
+.index_content .day_new h2 {
     width: 200px;
     border-top: 2px solid #fe5322;
     text-align: center;
     color: red;
 }
-.index_content .day_new figcaption p:last-of-type{
+
+.index_content .day_new figcaption p:last-of-type {
     font-size: 18px;
 }
-.index_content .day_new figcaption p:last-of-type span{
+
+.index_content .day_new figcaption p:last-of-type span {
     font-size: 12px;
-    color:#999;
+    color: #999;
     text-decoration: line-through;
     margin-left: 15px;
 }
-.index_content .fine_pick{
+
+.index_content .fine_pick {
+    width: 100%;
     overflow: hidden;
+    margin-bottom: 20px;
 }
-.index_content .fine_pick h2{
+
+.index_content .fine_pick h2 {
     padding-left: 40px;
     height: 40px;
     line-height: 40px;
-    background:url(./../images/floor-T.jpg) no-repeat left;
+    background: url(./../images/floor-T.jpg) no-repeat left;
 }
-.index_content .fine_pick h2 a{
+
+.index_content .fine_pick h2 a {
     margin-right: 20px;
 }
-.index_content .fine_pick h2 a:hover{
+
+.index_content .fine_pick h2 a:hover {
     color: red;
 }
-.index_content .fi_pi_right{
+
+.index_content .fi_pi_right {
     width: 220px;
     height: 600px;
     background-color: #fff;
 }
-.index_content .fi_pi_right h3{
+
+.index_content .fi_pi_right h3 {
     color: red;
-    padding:15px 20px;
+    padding: 15px 20px;
 }
-.index_content .fi_pi_right ul{
+
+.index_content .fi_pi_right ul {
     font-size: 12px;
 }
-.index_content .fi_pi_right ul li{
+
+.index_content .fi_pi_right ul li {
     padding: 20px;
     padding-left: 30px;
 
 }
-.index_content .fi_pi_right ul p:first-of-type{
+
+.index_content .fi_pi_right ul p:first-of-type {
     height: 40px;
     line-height: 20px;
     overflow: hidden;
 }
-.index_content .fi_pi_right .fi_pi_rank{
+
+.index_content .fi_pi_right .fi_pi_rank {
     padding: 23px;
     padding-left: 44px;
 }
-.index_content  .fi_pi_rank p:last-of-type{
+
+.index_content .fi_pi_rank p:last-of-type {
     float: right;
 }
-.index_content .fi_pi_main{
-    width: 100%;
+
+.index_content .fi_pi_main {
+    width: 760px;
     display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    justify-content: space-around;
+}
+
+.index_content .fi_pi_main figure {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #fff;
+    width: 220px;
+    height: 290px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.index_content .fi_pi_main figure a:hover {
+    color: red;
+}
+
+.index_content .fi_pi_main figure p {
+    color: red;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    padding: 0 20px;
+}
+
+.index_content .fi_pi_main figcaption p:last-of-type {
+    font-size: 18px;
+}
+
+.index_content .fi_pi_main figcaption p:last-of-type span {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 15px;
+}
+
+.index_content .guess_love {
+    padding-bottom: 30px;
+    margin-bottom: 0;
+}
+
+.index_content .guess_love .fi_pi_main {
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.index_content .guess_love h2 {
+    background-image: none;
+    text-align: center;
+    line-height: 15px;
+}
+
+.index_content .mall_infor {
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.index_content .mall_infor h3 {
+    padding: 20px;
+    font-size: 18px;
+}
+
+.index_content .mall_infor>div {
+    float: left;
+    height: 340px;
+}
+
+.index_content .mall_new {
+    width: 290px;
+    border-right: 1px solid #eee;
+}
+
+.index_content .mall_list {
+    width: 440px;
+    position: relative;
+}
+
+.index_content .list_btn {
+    position: absolute;
+    width: 100%;
+    top: 150px;
+}
+
+.index_content .list_btn span {
+    background-color: #f3f3f3;
+    display: inline-block;
+    width: 15px;
+    height: 50px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 50px;
+    color: #555;
+    cursor: pointer;
+}
+
+.index_content .list_left {
+    border-radius: 50px 0 0 50px;
+}
+
+.index_content .list_right {
+    border-radius: 0 50px 50px 0;
+}
+
+.index_content .mall_list_all{
+    padding: 20px;
+    overflow: hidden;
+}
+.index_content .mall_list_all li{
+    padding: 10px;
+    width: 200px;
+    float: left;
+    line-height: 20px;
+    color: #535353;
+      position: relative;
+}
+.index_content .mall_list_all p:first-of-type{
+    text-indent: 40px;
+}
+.index_content .mall_list_all span{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(./../images/u=3617890711\,2025017534&fm=26&gp=0.jpg) no-repeat center;
+    background-size:cover;
+    position: absolute;
+    top: 155px;
+    left: 0;
 }
