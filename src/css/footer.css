@@ -4,46 +4,46 @@ html,body{
     width: 100%;
     overflow: hidden;
 }
-footer{
+.sun_footer footer{
     width: 100%;
     background-color: #616161;
     border-top: 1px solid #e3e3e3;
     padding:30px 0;
 }
-.introduce{
+.sun_footer .introduce{
     width: 100%;
     overflow: hidden;
 }
-.introduce dl{
+.sun_footer .introduce dl{
     float: left;
     width: 200px;
 }
-.introduce dl dt{
+.sun_footer .introduce dl dt{
     color: #fff;
     line-height: 26px;
 }
-.introduce dl dd a{
+.sun_footer .introduce dl dd a{
     color: #fff;
     line-height: 24px;
 }
-.introduce dl dd a:hover{
+.sun_footer .introduce dl dd a:hover{
     color: red;
 }
-p{
+.sun_footer p{
     padding-top: 20px;
     line-height: 24px;
     height: 44px;
     text-align: center;
 }
-p a{
+.sun_footer p a{
     color:#bdbdbd;
     padding:0 2px;
 }
-p i{
+.sun_footer p i{
     color:#bdbdbd;
     margin-left: 2px;
 }
-li{
+.sun_footer li{
     color:#999;
     text-align: center;
     line-height: 20px;

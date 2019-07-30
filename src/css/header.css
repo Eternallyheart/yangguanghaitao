@@ -6,41 +6,41 @@ body {
     height: 100%;
 }
 
-section {
+.sun_header {
     width: 100%;
     border-bottom: 2px solid #fe5722;
 }
 
-header {
+.sun_header header {
     background: #f8f8f8;
     border: 1px solid #eee;
     height: 40px;
     line-height: 40px;
 }
 
-.welcome {
+.sun_header .welcome {
     overflow: hidden;
 }
 
-header li a {
+.sun_header header li a {
     padding: 0 15px;
 }
 
-header li a:last-of-type {
+.sun_header header li a:last-of-type {
     padding-left: 0;
     padding-right: 30px;
 }
 
-header li a:hover {
+.sun_header header li a:hover {
     color: red;
 }
 
-main {
+.sun_header main {
     height: 90px;
     position: relative;
 }
 
-main h1 {
+.sun_header main h1 {
     text-indent: -999px;
     width: 200px;
     height: 60px;
@@ -48,13 +48,13 @@ main h1 {
     margin-top: 15px;
 }
 
-main form {
+.sun_header main form {
     width: 480px;
     margin-left: 100px;
     padding-top: 30px;
 }
 
-main form input {
+.sun_header main form input {
     width: 380px;
     height: 30px;
     padding-left: 35px;
@@ -62,7 +62,7 @@ main form input {
     background: url(./../images/search.jpg) no-repeat 10px 6px/14px 14px;
 }
 
-main form button {
+.sun_header main form button {
     width: 100px;
     height: 30px;
     line-height: 30px;
@@ -74,11 +74,11 @@ main form button {
     margin-left: -5px;
 }
 
-main li {
+.sun_header main li {
     margin-top: 30px;
 }
 
-.cart_box a {
+.sun_header .cart_box a {
     display: block;
     width: 155px;
     height: 30px;
@@ -88,59 +88,59 @@ main li {
     color: #333;
 }
 
-.cart_box a span {
+.sun_header .cart_box a span {
     font-size: 16px;
     padding: 0 5px;
 }
 
-.cart_box i:first-of-type {
+.sun_header .cart_box i:first-of-type {
     padding-right: 10px;
     color: #fe5722;
 }
 
-.cart_box i:last-of-type {
+.sun_header .cart_box i:last-of-type {
     padding-left: 10px;
     color: #fe5722;
 }
 
-nav {
+.sun_header nav {
     overflow: hidden;
    
 }
 
-nav li {
+.sun_header nav li {
     float: left;
 }
 
-nav>li>a {
+.sun_header nav>li>a {
     display: inline-block;
     padding: 10px 23px;
 }
 
-.nav_title {
+.sun_header .nav_title {
     width: 220px;
     height: 43px;
     text-align: center;
     background-color: #fe5722;
 }
 
-.nav_title a {
+.sun_header .nav_title a {
     color: #fff;
 }
 
-nav>li>a:hover {
+.sun_header nav>li>a:hover {
     color: red;
 }
 
-.nav_title:hover>a {
+.sun_header .nav_title:hover>a {
     color: #fff;
 }
 
-.nav_title:hover .nav_list {
+.sun_header .nav_title:hover .nav_list {
     display: block;
 }
 
-.nav_list {
+.sun_header .nav_list {
     width: 220px;
     height: 400px;
     background-color: #fff;
@@ -148,11 +148,11 @@ nav>li>a:hover {
     top: 173px;
     display: none;
 }
-.nav_list>a:first-of-type{
+.sun_header .nav_list>a:first-of-type{
     height: 42px;
     border-top: 2px solid #fe5722;
 }
-.nav_list>a {
+.sun_header .nav_list>a {
     display: block;
     width: 220px;
     height: 40px;
@@ -161,21 +161,21 @@ nav>li>a:hover {
     color: #333;
 }
 
-.nav_list>a.current {
+.sun_header .nav_list>a.current {
     background-color: #fe6022;
     color: #fff;
 }
 
-.nav_list>a.current i {
+.sun_header .nav_list>a.current i {
     color: #999;
 }
 
-.nav_list>a>i {
+.sun_header .nav_list>a>i {
     padding-left: 100px;
     color: #fe5722;
 }
 
-.nav_menu1 {
+.sun_header .nav_menu1 {
     width: 740px;
     height: 400px;
     overflow: hidden;
@@ -188,56 +188,56 @@ nav>li>a:hover {
     text-align: left;
 }
 
-.nav_menu .current {
+.sun_header .nav_menu .current {
     display: block;
 }
 
-.nav_menu_list {
+.sun_header .nav_menu_list {
     width: 480px;
     height: 100%;
     overflow: hidden;
     padding-top: 15px
 }
 
-.nav_menu_list dl {
+.sun_header .nav_menu_list dl {
     height: 40px;
 }
 
-.nav_menu_list dt,
+.sun_header .nav_menu_list dt,
 dd {
     display: inline-block;
 }
 
-.nav_menu_list a {
+.sun_header .nav_menu_list a {
     height: 40px;
     line-height: 40px;
     padding: 0 5px;
     color: #333;
 }
 
-.nav_menu_list dt {
+.sun_header .nav_menu_list dt {
     margin-left: 10px;
     margin-right: 20px;
     z-index: 1;
 }
 
-.nav_menu_list dt a:hover {
+.sun_header .nav_menu_list dt a:hover {
     color: #333;
 }
 
-.nav_menu_list dl {
+.sun_header .nav_menu_list dl {
     border-bottom: 1px solid #dcdcdc;
 }
 
-.nav_menu_list dl:last-of-type {
+.sun_header .nav_menu_list dl:last-of-type {
     border-bottom: none;
 }
 
-.menu_logo {
+.sun_header .menu_logo {
     width: 240px;
 }
 
-.menu_logo a img {
+.sun_header .menu_logo a img {
     width: 100px;
     height: 45px;
     margin: 10px 0;

@@ -6,7 +6,7 @@ body {
     height: 100%;
 }
 
-aside {
+.sun_aside aside {
     height: 100%;
     position: fixed;
     top: 0px;
@@ -17,14 +17,14 @@ aside {
     /* text-indent: -9999px; */
 }
 
-.toolbar {
+.sun_aside .toolbar {
     position: absolute;
     top: 50%;
     right: 0px;
     transform: translate(0, -50%);
 }
 
-.toolbar_person {
+.sun_aside .toolbar_person {
     width: 35px;
     height: 30px;
     background-color: #333;
@@ -34,23 +34,23 @@ aside {
     z-index: 10;
 }
 
-.toolbar div a {
+.sun_aside .toolbar div a {
     color: #fff;
 }
 
-.toolbar div a i {
+.sun_aside .toolbar div a i {
     font-size: 20px;
 }
 
-.toolbar_person {
+.sun_aside .toolbar_person {
     margin-bottom: 2px;
 }
 
-.toolbar_cart {
+.sun_aside .toolbar_cart {
     margin-bottom: 2px;
 }
 
-aside .user {
+.sun_aside aside .user {
     width: 70px;
     height: 30px;
     line-height: 30px;
@@ -63,15 +63,15 @@ aside .user {
     z-index: 1;
 }
 
-aside .current {
+.sun_aside aside .current {
     background-color: red;
 }
 
-.toolbar .cart {
+.sun_aside .toolbar .cart {
     top: 32px;
     right: -75px;
 }
-.toolbar_scroll{
+.sun_aside .toolbar_scroll{
     font-size: 20px;
     color: #fff;
     position: absolute;
@@ -80,7 +80,7 @@ aside .current {
     cursor: pointer;
     margin-bottom: 0;
 }
-.scroll{
+.sun_aside .scroll{
     width: 70px;
     height: 30px;
     line-height: 30px;
@@ -92,10 +92,10 @@ aside .current {
     z-index: 1;
     background-color: #000;
 }
-.scroll a{
+.sun_aside .scroll a{
      color: #fff;
 }
-.toolbar_chat{
+.sun_aside .toolbar_chat{
     height: 40px;
     line-height: 40px;
     width: 230px;
@@ -108,11 +108,12 @@ aside .current {
     text-align: center;
     cursor: pointer;
 }
-.toolbar_chat i{
+.sun_aside .toolbar_chat i{
     margin-right: 20px;
     font-size: 20px;
 }
-.chatBox{
+.sun_aside .chatBox{
     width: 320px;
     height: 480px;
+    display: none;
 }
