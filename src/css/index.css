@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.index {
+    width: 100%;
+    height: 100%;
+}
+
+.index_content {
+    background: #f3f3f3;
+}
+
+.index .in_banner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.index .in_banner main li a {
+    width: 100%;
+    height: 400px;
+    display: none;
+}
+
+.index .in_banner main li:first-of-type a {
+    background: url(./../images/20170612110012_7121.png) no-repeat center;
+    background-size: cover;
+}
+
+.index .in_banner main li:nth-child(2) a {
+    background: url(./../images/20170612110318_4621.png) no-repeat center;
+    background-size: cover;
+}
+
+.index .in_banner main li:nth-child(3) a {
+    background: url(./../images/20170612111654_6965.png) no-repeat center;
+    background-size: cover;
+}
+
+.index .in_banner main li:nth-child(4) a {
+    background: url(./../images/20170612112031_1184.png) no-repeat center;
+    background-size: cover;
+}
+
+.index .in_banner main li:last-of-type a {
+    background: url(./../images/20170830152246_3436.png) no-repeat center;
+    background-size: cover;
+}
+
+.index .in_banner main li.show a {
+    display: block;
+}
+
+.index .in_banner aside {
+    height: 400px;
+    width: 220px;
+    position: absolute;
+    right: 45px;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 10px;
+}
+
+.index .in_banner aside h4 {
+    width: 100px;
+    height: 30px;
+    background-color: #006efd;
+    color: #fff;
+    line-height: 30px;
+    position: absolute;
+    top: 5px;
+    left: 35px;
+}
+
+.index .in_banner aside ul {
+    width: 200px;
+    background: #fff;
+}
+
+.index .in_banner aside ul:first-of-type {
+    height: 200px;
+    font-size: 12px;
+    padding: 10px;
+    padding-top: 40px;
+    text-align: left;
+    line-height: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.index .in_banner aside ul:last-of-type a {
+    display: block;
+    height: 180px;
+    background: url(./../images/20160624170611_8374.jpg) no-repeat center;
+}
+
+.index .in_nav {
+    padding: 20px 0;
+    display: flex;
+}
+
+.index .in_nav li {
+    flex: 1;
+}
+
+.index .in_nav img {
+    width: 280px;
+    height: 180px;
+}
+
+.index_content .flash_sale {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.index_content .flash_sale {
+    padding: 20px;
+    padding-top:0;
+    background-color: #fff;
+}
+
+.index_content .flash_sale h2 {
+    height: 40px;
+    line-height: 40px;
+}
+
+.index_content .flash_sale h2 span {
+    float: right;
+}
+
+.index_content .flash_sale section {
+    display: flex;
+}
+
+.index_content .flash_sale figure {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    width: 200px;
+}
+
+.index_content .flash_sale figure a:hover {
+    color: red;
+}
+
+.index_content .flash_sale figure p {
+    color: red;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    padding: 0 20px;
+}
+
+.index_content .day_new h2{
+    width: 200px;
+    border-top: 2px solid #fe5322;
+    text-align: center;
+    color: red;
+}
+.index_content .day_new figcaption p:last-of-type{
+    font-size: 18px;
+}
+.index_content .day_new figcaption p:last-of-type span{
+    font-size: 12px;
+    color:#999;
+    text-decoration: line-through;
+    margin-left: 15px;
+}
+.index_content .fine_pick{
+    overflow: hidden;
+}
+.index_content .fine_pick h2{
+    padding-left: 40px;
+    height: 40px;
+    line-height: 40px;
+    background:url(./../images/floor-T.jpg) no-repeat left;
+}
+.index_content .fine_pick h2 a{
+    margin-right: 20px;
+}
+.index_content .fine_pick h2 a:hover{
+    color: red;
+}
+.index_content .fi_pi_right{
+    width: 220px;
+    height: 600px;
+    background-color: #fff;
+}
+.index_content .fi_pi_right h3{
+    color: red;
+    padding:15px 20px;
+}
+.index_content .fi_pi_right ul{
+    font-size: 12px;
+}
+.index_content .fi_pi_right ul li{
+    padding: 20px;
+    padding-left: 30px;
+
+}
+.index_content .fi_pi_right ul p:first-of-type{
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+}
+.index_content .fi_pi_right .fi_pi_rank{
+    padding: 23px;
+    padding-left: 44px;
+}
+.index_content  .fi_pi_rank p:last-of-type{
+    float: right;
+}
+.index_content .fi_pi_main{
+    width: 100%;
+    display: flex;
+}

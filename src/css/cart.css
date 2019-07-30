@@ -42,7 +42,8 @@ body {
     width: 100%;
 }
 
-.sun_cart .sun_cart_logo {
+.sun_cart .sun_cart_logo a {
+    display: block;
     width: 200px;
     height: 60px;
     text-indent: -9999px;
@@ -172,12 +173,17 @@ body {
     width: 100px;
     height: 50px;
     background-color: #fe5322;
+    font-size: 16px;
+    color: #fff;
 }
 .sun_cart footer {
     padding-top: 30px;
     text-align: center;
     line-height: 20px;
     color: #999;
+    padding-bottom: 40px;
+    background-color: #eee;
+    margin-top: 40px;
 }
 
 .sun_cart footer p a {
