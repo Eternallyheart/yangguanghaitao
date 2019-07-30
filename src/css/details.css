@@ -1,0 +1,283 @@
+@charset "utf-8";
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.sun_details {
+    height: 100%;
+}
+
+.sun_details .sun_det_header {
+    height: 36px;
+    line-height: 36px;
+}
+
+.sun_details .details_product {
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.sun_details .details_img {
+    width: 410px;
+}
+
+.sun_details .details_middle {
+    margin-bottom: 10px;
+}
+
+.sun_details .details_middle img {
+    width: 410px;
+    height: 540px;
+    border: 1px solid #dbdbdd;
+}
+
+.sun_details .details_middleArea {
+    display: none;
+}
+
+.sun_details .details_middleArea {
+    display: none;
+}
+
+.sun_details .details_allImg {
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.sun_details .details_allImg li {
+    width: 60px;
+    border: 1px solid #dbdbdd;
+    margin-right: 10px;
+    float: left;
+}
+
+.sun_details .details_allImg img {
+    width: 60px;
+    height: 60px;
+}
+
+.sun_details .details_share {
+    width: 240px;
+}
+
+.sun_details .details_share span {
+    padding-left: 20px;
+}
+
+.sun_details .details_share img {
+    width: 20px;
+}
+
+.sun_details .details_share a:last-of-type {
+    padding-left: 20px;
+}
+
+.sun_details .details_choice {
+    padding: 0 25px;
+    width: 580px;
+    height: 350px;
+}
+
+.sun_details .details_choice h2 {
+    height: 35px;
+    line-height: 35px;
+}
+
+.sun_details .details_choice .det_ch_price {
+    height: 100px;
+    background-color: #eee;
+    padding: 10px 20px;
+}
+
+.sun_details .details_choice .det_ch_price li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.sun_details .details_choice .det_ch_price .det_ch_oldPrice {
+    font-size: 14px;
+    text-decoration: line-through;
+    padding-left: 15px;
+}
+
+.sun_details .details_choice .det_ch_price .det_ch_newPrice {
+    padding: 10px 15px;
+    font-size: 24px;
+    color: red;
+}
+
+.sun_details .details_choice .det_ch_price li a {
+    color: red;
+}
+
+.sun_details .details_choice .det_ch_delivery p {
+    padding: 10px 20px;
+    height: 60px;
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.sun_details .details_choice .det_ch_delivery .province {
+    margin: 0 20px;
+    padding: 3px 10px;
+    padding-right: 20px;
+    border: 1px solid #dbdbdb;
+    display: inline-block;
+    background-color: #fff;
+}
+
+.sun_details .details_choice .det_ch_sale {
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.sun_details .details_choice .det_ch_sale li {
+    flex: 1;
+}
+
+.sun_details .details_choice .det_ch_sale li span {
+    color: red;
+    padding: 0 4px;
+}
+
+.sun_details .details_choice .det_ch_number {
+    position: relative;
+    padding: 20px;
+}
+
+.sun_details .details_choice .det_ch_cart {
+    display: inline-block;
+    border: 1px solid #eee;
+    padding: 15px 30px;
+    margin-left: 25px;
+    margin-right: 15px;
+}
+
+.sun_details .details_choice .det_ch_stock {
+    color: #999;
+    margin-left: 30px;
+}
+
+.sun_details .details_choice .det_ch_add {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #eee;
+}
+
+.sun_details .details_choice .det_ch_reduce {
+    position: absolute;
+    top: 50px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #eee;
+}
+
+.sun_details .details_choice .det_ch_btn {
+    padding: 10px 20px;
+}
+
+.sun_details .details_choice .det_ch_btn button {
+    width: 200px;
+    height: 40px;
+    border-radius: 3px;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.sun_details .details_choice .det_ch_buy {
+    background-color: #fff;
+    border: 2px solid #fe5322;
+    color: #fe5322;
+}
+
+.sun_details .details_choice .det_ch_join {
+    background-color: #fe5322;
+    color: #fff;
+}
+
+.sun_details .details_choice .det_ch_join i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.sun_details .details_suggest{
+    overflow: hidden;
+}
+.sun_details .details_server {
+    width: 210px;
+}
+.sun_details .details_server dd{
+    margin: 10px 0;
+}
+.sun_details .details_server dd:first-of-type {
+    background: #fff;
+    color: #666;
+}
+.sun_details .details_banner{
+    width: 200px;
+    height: 460px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+.sun_details .details_banner h3{
+    height: 40px;
+    line-height: 40px;
+    text-indent: 15px;
+}
+.sun_details .details_banner figure{
+    flex: 1;
+    padding:0 15px;
+    font-size: 12px;
+}
+.sun_details .details_banner figure a:hover{
+    color: red;
+}
+.sun_details .details_banner figure p{
+    color: red;
+}
+.sun_details .product_suggest{
+    width: 980px;
+}
+.sun_details .pro_su_title{
+    overflow: hidden;
+    border: 1px solid #eee;
+} 
+.sun_details .pro_su_title li{
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    color: #535353;
+    cursor: pointer;
+    background: url(./../images/line_07.png) no-repeat right center;
+}
+.sun_details .pro_su_title li.current{
+    border:  1px solid #fe5322;
+    border-top: 2px solid #fe5322;
+    border-bottom: 0;
+    color: #fe5322;
+    background: url(./../images/line_03.png) no-repeat center top;
+}
+.sun_details .su_con_product {
+    padding-top:50px;
+    padding-bottom:20px;
+    border-bottom: 1px solid #eee;
+}
+.sun_details .su_con_product p{
+    line-height: 26px;
+    color: #333;
+}
+.sun_details .su_con_appraise{
+    
+}
+.sun_details .su_con_record{
+    padding: 25px;
+}
