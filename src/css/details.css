@@ -206,50 +206,63 @@ body {
     margin-right: 10px;
     font-size: 20px;
 }
-.sun_details .details_suggest{
+
+.sun_details .details_suggest {
     overflow: hidden;
 }
+
 .sun_details .details_server {
     width: 210px;
 }
-.sun_details .details_server dd{
+
+.sun_details .details_server dd {
     margin: 10px 0;
 }
+
 .sun_details .details_server dd:first-of-type {
     background: #fff;
     color: #666;
 }
-.sun_details .details_banner{
+
+.sun_details .details_banner {
     width: 200px;
     height: 460px;
     border: 1px solid #eee;
     display: flex;
     flex-direction: column;
 }
-.sun_details .details_banner h3{
+
+.sun_details .details_banner h3 {
     height: 40px;
     line-height: 40px;
     text-indent: 15px;
 }
-.sun_details .details_banner figure{
+
+.sun_details .details_banner figure {
     flex: 1;
-    padding:0 15px;
+    padding: 0 15px;
     font-size: 12px;
 }
-.sun_details .details_banner figure a:hover{
+
+.sun_details .details_banner figure a:hover {
     color: red;
 }
-.sun_details .details_banner figure p{
+
+.sun_details .details_banner figure p {
     color: red;
 }
-.sun_details .product_suggest{
+
+.sun_details .product_suggest {
     width: 980px;
+
 }
-.sun_details .pro_su_title{
+
+.sun_details .pro_su_title {
     overflow: hidden;
     border: 1px solid #eee;
-} 
-.sun_details .pro_su_title li{
+}
+
+.sun_details .pro_su_title li {
     width: 140px;
     height: 40px;
     line-height: 40px;
@@ -259,25 +272,164 @@ body {
     cursor: pointer;
     background: url(./../images/line_07.png) no-repeat right center;
 }
-.sun_details .pro_su_title li.current{
-    border:  1px solid #fe5322;
+
+.sun_details .pro_su_title li.current {
+    border: 1px solid #fe5322;
     border-top: 2px solid #fe5322;
     border-bottom: 0;
     color: #fe5322;
     background: url(./../images/line_03.png) no-repeat center top;
 }
-.sun_details .su_con_product {
-    padding-top:50px;
-    padding-bottom:20px;
-    border-bottom: 1px solid #eee;
+
+.sun_details .pro_su_content {
+    border: 1px solid #eee;
+    border-top: none;
 }
-.sun_details .su_con_product p{
+
+.sun_details .su_con_product {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+}
+
+.sun_details .su_con_pro_img {
+    width: 592px;
+    margin: 10px auto;
+}
+
+.sun_details .su_con_product p {
     line-height: 26px;
     color: #333;
 }
-.sun_details .su_con_appraise{
-    
+
+.sun_details .su_con_appraise {
+    overflow: hidden;
 }
-.sun_details .su_con_record{
+
+.sun_details .su_con_app_total {
+    overflow: hidden;
+    padding: 30px;
+}
+
+.sun_details .su_con_app_commentary {
+    margin-right: 80px;
+}
+
+.sun_details .su_app_commentary {
+    font-size: 30px;
+    color: red;
+}
+
+.sun_details .su_con_app_progress {
+    line-height: 20px;
+    color: #999;
+}
+
+.sun_details .su_con_app_progress progress {
+    border: none;
+    background-color: #efefef;
+    margin-left: 20px;
+}
+
+.sun_details .su_con_app_title {
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
+}
+
+.sun_details .su_con_app_title li {
+    float: left;
+    width: 160px;
+    text-align: center;
+}
+
+.sun_details .su_con_app_title li.show {
+    color: red;
+}
+
+.sun_details .su_con_app_content {
+    width: 100%;
+}
+
+.sun_details .su_con_app_content ul {
     padding: 25px;
+    line-height: 24px;
+}
+
+.sun_details .su_con_record {
+    padding: 25px;
+    padding-bottom: 40px;
+}
+
+.sun_details .su_con_record table {
+    width: 100%;
+}
+
+.sun_details .su_con_record thead {
+    background-color: #eee;
+    height: 40px;
+    line-height: 40px;
+    color: #888;
+}
+
+.sun_details .su_con_consult {
+    width: 100%;
+
+}
+
+.sun_details .su_con_consult div {
+    width: 100%;
+}
+
+.sun_details .su_con_consult div ul li {
+    width: 100%;
+    line-height: 30px;
+    padding: 20px;
+    display: none;
+}
+
+.sun_details .su_consult_footer {
+    padding: 15px 25px 40px;
+}
+
+.sun_details .su_consult_footer button {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-right: 25px;
+    color: #535353;
+    cursor: pointer;
+}
+
+.sun_details .su_consult_footer a {
+    color: #0091ea;
+}
+
+.sun_details .details_relate{
+    border: 1px solid #eee;
+    padding: 0 20px;
+}
+.sun_details .details_relate h3{
+    height: 40px;
+    line-height: 40px;
+}
+.sun_details .det_re_product{
+    display: flex;
+}
+.sun_details .det_re_product figure{
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+}
+.sun_details .det_re_product figure a{
+    color: #535353;
+}
+.sun_details .det_re_product figure a:hover{
+    color:red;
+}
+.sun_details .det_re_product figure p{
+    color: red;
 }
