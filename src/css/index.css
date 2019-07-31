@@ -21,7 +21,9 @@ body {
     height: 400px;
     overflow: hidden;
 }
-
+.index .in_banner main li{
+    overflow: hidden;
+}
 .index .in_banner main li a {
     width: 100%;
     height: 400px;
@@ -57,7 +59,31 @@ body {
     display: block;
 }
 
-.index .in_banner aside {
+.index  .banner_show {
+    width: 130px;
+    height: 22px;
+    background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform:translate(-50%,0);
+    border-radius: 10px;
+    text-align: center;
+    line-height: 22px;
+}
+.index .banner_show span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.index .banner_show span.show{
+    background-color: #fe5322;
+}
+.index .banner_notice {
     height: 400px;
     width: 230px;
     position: absolute;
@@ -216,7 +242,11 @@ body {
     padding-left: 30px;
     position: relative;
 }
-
+.index_content .fi_pi_right ul li img{
+    width: 40px;
+    height: 40px;
+    margin-bottom:20px;
+}
 .index_content .fi_pi_right ul li span {
     display: block;
     width: 20px;
@@ -253,6 +283,12 @@ body {
     overflow: hidden;
 }
 
+.index_content .fi_pi_right  li.current{
+    background-color: #eee;
+}
+.index_content .fi_pi_right  span.current{
+    background-color: #eee;
+}
 .index_content .fi_pi_right .fi_pi_rank {
     padding: 23px;
     padding-left: 44px;
@@ -261,6 +297,7 @@ body {
 .index_content .fi_pi_rank p:last-of-type {
     float: right;
 }
+
 
 .index_content .fi_pi_main {
     width: 760px;
@@ -282,6 +319,11 @@ body {
     margin-bottom: 20px;
 }
 
+.index_content .fi_pi_main figure.current {
+    transition:all 0.5s;
+    transform: translate(0,-5px);
+    box-shadow: 5px 5px 2px 1px #eee,-5px -5px 2px 1px #eee;
+}
 .index_content .fi_pi_main figure a:hover {
     color: red;
 }
