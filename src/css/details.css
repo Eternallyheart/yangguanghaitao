@@ -7,12 +7,16 @@ body {
 }
 
 .sun_details {
-    height: 100%;
+    overflow: hidden;
 }
 
 .sun_details .sun_det_header {
     height: 36px;
     line-height: 36px;
+}
+
+.sun_details_product {
+    overflow: hidden;
 }
 
 .sun_details .details_product {
@@ -79,6 +83,7 @@ body {
     padding: 0 25px;
     width: 580px;
     height: 350px;
+    border-right: 1px solid #eee;
 }
 
 .sun_details .details_choice h2 {
@@ -86,72 +91,86 @@ body {
     line-height: 35px;
 }
 
-.sun_details .details_choice .det_ch_price {
+.sun_details .det_ch_price {
     height: 100px;
     background-color: #eee;
     padding: 10px 20px;
 }
 
-.sun_details .details_choice .det_ch_price li {
+.sun_details .det_ch_price li {
     height: 30px;
     line-height: 30px;
 }
 
-.sun_details .details_choice .det_ch_price .det_ch_oldPrice {
+.sun_details .det_ch_price .det_ch_oldPrice {
     font-size: 14px;
     text-decoration: line-through;
     padding-left: 15px;
 }
 
-.sun_details .details_choice .det_ch_price .det_ch_newPrice {
+.sun_details .det_ch_price .det_ch_newPrice {
     padding: 10px 15px;
     font-size: 24px;
     color: red;
 }
 
-.sun_details .details_choice .det_ch_price li a {
+.sun_details .det_ch_price li a {
     color: red;
 }
 
-.sun_details .details_choice .det_ch_delivery p {
+.sun_details .det_ch_delivery p {
     padding: 10px 20px;
     height: 60px;
     line-height: 40px;
     border-bottom: 1px solid #eee;
 }
 
-.sun_details .details_choice .det_ch_delivery .province {
+.sun_details .det_ch_delivery .province {
     margin: 0 20px;
     padding: 3px 10px;
-    padding-right: 20px;
     border: 1px solid #dbdbdb;
     display: inline-block;
     background-color: #fff;
+    cursor: pointer;
 }
 
-.sun_details .details_choice .det_ch_sale {
+.sun_details .province i {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.sun_details .det_ch_sale {
     height: 60px;
-    line-height: 60px;
+    line-height: 20px;
     display: flex;
     text-align: center;
     border-bottom: 1px solid #eee;
+    padding: 20px;
 }
 
-.sun_details .details_choice .det_ch_sale li {
+.sun_details .det_ch_sale li {
     flex: 1;
 }
 
-.sun_details .details_choice .det_ch_sale li span {
+.sun_details .det_ch_sale li:first-of-type {
+    border-right: 1px solid #eee;
+}
+
+.sun_details .det_ch_sale li span {
     color: red;
     padding: 0 4px;
 }
 
-.sun_details .details_choice .det_ch_number {
+.sun_details .det_ch_number {
     position: relative;
     padding: 20px;
 }
 
-.sun_details .details_choice .det_ch_cart {
+.sun_details .det_ch_number i {
+    font-size: 12px;
+}
+
+.sun_details .det_ch_cart {
     display: inline-block;
     border: 1px solid #eee;
     padding: 15px 30px;
@@ -159,31 +178,34 @@ body {
     margin-right: 15px;
 }
 
-.sun_details .details_choice .det_ch_stock {
+.sun_details .det_ch_stock {
     color: #999;
     margin-left: 30px;
 }
 
-.sun_details .details_choice .det_ch_add {
+.sun_details .det_ch_num {
     position: absolute;
     width: 20px;
     height: 20px;
+    text-align: center;
     border: 1px solid #eee;
+    cursor: pointer;
 }
 
-.sun_details .details_choice .det_ch_reduce {
-    position: absolute;
-    top: 50px;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #eee;
+.sun_details .det_ch_add {
+    top: 20;
 }
 
-.sun_details .details_choice .det_ch_btn {
+
+.sun_details .det_ch_reduce {
+    top: 45px;
+}
+
+.sun_details .det_ch_btn {
     padding: 10px 20px;
 }
 
-.sun_details .details_choice .det_ch_btn button {
+.sun_details .det_ch_btn button {
     width: 200px;
     height: 40px;
     border-radius: 3px;
@@ -191,32 +213,35 @@ body {
     font-size: 16px;
 }
 
-.sun_details .details_choice .det_ch_buy {
+.sun_details .det_ch_buy {
     background-color: #fff;
     border: 2px solid #fe5322;
     color: #fe5322;
 }
 
-.sun_details .details_choice .det_ch_join {
+.sun_details .det_ch_join {
     background-color: #fe5322;
     color: #fff;
 }
 
-.sun_details .details_choice .det_ch_join i {
+.sun_details .det_ch_join i {
     margin-right: 10px;
     font-size: 20px;
 }
 
 .sun_details .details_suggest {
+    width: 100%;
     overflow: hidden;
 }
 
 .sun_details .details_server {
     width: 210px;
+    padding: 10px;
 }
 
 .sun_details .details_server dd {
     margin: 10px 0;
+    width: 100%;
 }
 
 .sun_details .details_server dd:first-of-type {
@@ -407,29 +432,35 @@ body {
     color: #0091ea;
 }
 
-.sun_details .details_relate{
+.sun_details .details_relate {
     border: 1px solid #eee;
     padding: 0 20px;
 }
-.sun_details .details_relate h3{
+
+.sun_details .details_relate h3 {
     height: 40px;
     line-height: 40px;
 }
-.sun_details .det_re_product{
+
+.sun_details .det_re_product {
     display: flex;
 }
-.sun_details .det_re_product figure{
+
+.sun_details .det_re_product figure {
     flex: 1;
     padding: 10px;
     text-align: center;
     margin: 10px;
 }
-.sun_details .det_re_product figure a{
+
+.sun_details .det_re_product figure a {
     color: #535353;
 }
-.sun_details .det_re_product figure a:hover{
-    color:red;
+
+.sun_details .det_re_product figure a:hover {
+    color: red;
 }
-.sun_details .det_re_product figure p{
+
+.sun_details .det_re_product figure p {
     color: red;
 }

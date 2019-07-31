@@ -8,11 +8,12 @@ body {
 
 .index {
     width: 100%;
-    height: 100%;
+    overflow: hidden;
 }
 
 .index_content {
     background: #f3f3f3;
+    overflow: hidden;
 }
 
 .index .in_banner {
@@ -58,13 +59,13 @@ body {
 
 .index .in_banner aside {
     height: 400px;
-    width: 220px;
+    width: 230px;
     position: absolute;
     right: 45px;
     top: 0;
     background-color: rgba(0, 0, 0, 0.4);
     text-align: center;
-    padding: 10px;
+    padding: 10px 15px;
 }
 
 .index .in_banner aside h4 {
@@ -128,6 +129,7 @@ body {
 
 .index_content .flash_sale h2 span {
     float: right;
+    font-size: 12px;
 }
 
 .index_content .flash_sale section {
@@ -212,7 +214,37 @@ body {
 .index_content .fi_pi_right ul li {
     padding: 20px;
     padding-left: 30px;
+    position: relative;
+}
 
+.index_content .fi_pi_right ul li span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -5px -14px/115px 83px;
+}
+
+.index_content .fi_pi_right ul li:nth-child(2) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -20px -14px/115px 83px;
+}
+
+.index_content .fi_pi_right ul li:nth-child(3) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -33px -14px/115px 83px;
+}
+
+.index_content .fi_pi_right ul li:nth-child(4) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -48px -14px/115px 83px;
+}
+
+.index_content .fi_pi_right ul li:nth-child(5) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -62px -14px/115px 83px;
+}
+
+.index_content .fi_pi_right ul li:nth-child(6) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -78px -14px/115px 83px;
 }
 
 .index_content .fi_pi_right ul p:first-of-type {
@@ -274,6 +306,90 @@ body {
     margin-left: 15px;
 }
 
+.skin_care .fi_pi_right {
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skin_care .fi_pi_right ul {
+    background-color: #fff;
+    height: 290px;
+    width: 220px;
+    position: relative;
+}
+
+.skin_care .fi_pi_right ul:first-of-type {
+    padding: 25px 0;
+}
+
+.skin_care .fi_pi_right ul:first-of-type div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.skin_care .fi_pi_right ul span {
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    display: block;
+    width: 60px;
+    height: 15px;
+    cursor: pointer;
+    background-image: url(./../images/brand_jt_03.jpg);
+    background-repeat: no-repeat;
+}
+
+.skin_care .fi_pi_right ul span:first-of-type {
+    top: 0;
+}
+
+.skin_care .fi_pi_right ul span:last-of-type {
+    bottom: 0;
+    background-image: url(./../images/brand_jt_07.jpg);
+}
+
+.skin_care .fi_pi_right ul span:first-of-type:hover {
+    background-image: url(./../images/brand_icon_03.jpg);
+}
+
+.skin_care .fi_pi_right ul span:last-of-type:hover {
+    background-image: url(./../images/brand_icon_07.jpg);
+}
+
+.skin_care .fi_pi_right ul:first-of-type li {
+    padding: 0 20px;
+}
+
+.skin_care .fi_pi_right ul:first-of-type li img {
+    width: 180px;
+    height: 60px;
+    border: 1px solid #eee;
+}
+
+.intel_digit .fi_pi_left p {
+    margin-top: 20px;
+}
+
+.intel_digit .fi_pi_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f3f3f3;
+
+}
+
+.intel_digit .fi_pi_right ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f3f3f3;
+}
+.intel_digit .fi_pi_right ul:first-of-type div:first-of-type{
+    margin-bottom: 20px;
+}
 .index_content .guess_love {
     padding-bottom: 30px;
     margin-bottom: 0;
@@ -287,12 +403,19 @@ body {
 .index_content .guess_love h2 {
     background-image: none;
     text-align: center;
-    line-height: 15px;
+    line-height: 20px;
+}
+
+.index_content .guess_love h2 i{
+    color: red;
+    font-size: 21px;
+    margin-right: 10px;
 }
 
 .index_content .mall_infor {
     overflow: hidden;
     background-color: #fff;
+    margin-bottom: 30px;
 }
 
 .index_content .mall_infor h3 {
@@ -341,28 +464,34 @@ body {
     border-radius: 0 50px 50px 0;
 }
 
-.index_content .mall_list_all{
+.index_content .mall_list_all {
     padding: 20px;
     overflow: hidden;
 }
-.index_content .mall_list_all li{
+
+.index_content .mall_list_all li {
     padding: 10px;
     width: 200px;
     float: left;
     line-height: 20px;
     color: #535353;
-      position: relative;
+    position: relative;
 }
-.index_content .mall_list_all p:first-of-type{
+
+.index_content .mall_list_all p:first-of-type {
     text-indent: 40px;
 }
-.index_content .mall_list_all span{
+
+.index_content .mall_list_all span {
     display: block;
     width: 50px;
     height: 50px;
     background: url(./../images/u=3617890711\,2025017534&fm=26&gp=0.jpg) no-repeat center;
-    background-size:cover;
+    background-size: cover;
     position: absolute;
     top: 155px;
     left: 0;
+}
+#header .sun_header .nav_list{
+    display: block;
 }

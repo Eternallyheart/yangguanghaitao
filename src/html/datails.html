@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="./../css/base.css">
     <link rel="stylesheet" href="./../css/details.css">
     <link rel="stylesheet" href="./../iconfont/iconfont.css">
+    <script src="./../js/jquery-3.4.1.min.js"></script>
+    <script src="./../js/datails.js"></script>
 </head>
 
 <body>
+    <header id="header"></header>
     <div class="sun_details container">
         <header class="sun_det_header f12">
             <p>
@@ -52,7 +55,7 @@
                         <ul class="det_ch_delivery f12">
                             <p>
                                 <span>配送至 :</span><button class="province">浙江省<i
-                                        class="iconfont icon-xiala"></i></button><span class="fr">免运费</span>
+                                        class="iconfont icon-weibiaoti1"></i></button><span class="fr">免运费</span>
                             </p>
                             <div class="det_ch_sale">
                                 <li>销量: <span>0</span></li>
@@ -61,8 +64,8 @@
                             <div class="det_ch_number">
                                 <span>数量 : </span>
                                 <span class="det_ch_cart">1</span>
-                                <span class="det_ch_add"><i class="iconfont icon-shangla"></i></span>
-                                <span class="det_ch_reduce"><i class="iconfont icon-xiala"></i></span>
+                                <span class="det_ch_add det_ch_num"><i class="iconfont icon-shangla"></i></span>
+                                <span class="det_ch_num det_ch_reduce "><i class="iconfont icon-weibiaoti1"></i></span>
                                 <span class="det_ch_stock">库存:999</span>
                             </div>
                             <li class="det_ch_btn">
@@ -222,8 +225,9 @@
                 </section>
             </section>
         </main>
-
     </div>
+     <aside id="aside"></aside>
+    <footer id="footer"></footer>
 </body>
 
 </html>

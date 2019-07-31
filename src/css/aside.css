@@ -69,7 +69,11 @@ body {
 
 .sun_aside .toolbar .cart {
     top: 32px;
-    right: -75px;
+    right: -35px;
+}
+.sun_aside .toolbar .coupon{
+    top: 64px;
+    right: -35px;
 }
 .sun_aside .toolbar_scroll{
     font-size: 20px;

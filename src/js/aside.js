@@ -3,11 +3,14 @@ $(".toolbar_person").on("mouseenter",function(){
     console.log($(".user"))
     console.log($(this).index())
     if($(this).index()==2){
-        $(".user").eq(1).stop().animate({right:35}).siblings(".user").animate({right:-35});
+        $(".user").eq(1).stop().animate({right:35}).siblings(".user").stop().animate({right:-35});
         $(".user").eq(1).addClass("current").siblings(".user").removeClass("current");
     }else  if($(this).index()==0){
-         $(".user").eq(0).stop().animate({right:35}).siblings(".user").animate({right:-35});
+         $(".user").eq(0).stop().animate({right:35}).siblings(".user").stop().animate({right:-35});
          $(".user").eq(0).addClass("current").siblings(".user").removeClass("current");
+    }else if($(this).index()==4){
+        $(".user").eq(2).stop().animate({right:35}).siblings(".user").stop().animate({right:-35});
+        $(".user").eq(2).addClass("current").siblings(".user").removeClass("current");
     }
 }).on("mouseleave",function(){
     $(".toolbar_person").removeClass("current");

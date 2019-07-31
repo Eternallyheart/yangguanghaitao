@@ -7,15 +7,14 @@ body {
 }
 
 .sun_list {
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
 }
 
 .sun_list main {
     overflow: hidden;
 }
 
-.sun_list header {
+.sun_list main header {
     height: 30px;
     padding-top: 10px;
     line-height: 20px;
@@ -51,6 +50,7 @@ body {
     text-align: center;
     font-size: 12px;
     color: #535353;
+    background: url(./../images/listico.jpg) no-repeat  10px center;
 }
 
 .sun_list .category_list li a:hover {
@@ -198,6 +198,9 @@ body {
     text-align: center;
     border-right: 1px solid #dbdbdb;
 }
+.sun_list .category_search li a i{
+    margin-left: 5px;
+} 
 .sun_list .category_search li span{
     color: #999;
     float: right;
