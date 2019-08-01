@@ -153,7 +153,7 @@ body {
     position: relative;
 }
 
-.sun_details .det_ch_delivery p {
+.sun_details .det_ch_delivery .choice_area {
     padding: 10px 20px;
     height: 60px;
     line-height: 40px;
@@ -161,49 +161,48 @@ body {
 }
 
 .sun_details .det_ch_delivery .area {
-    margin: 0 20px;
-    padding: 3px 10px;
-    border: 1px solid #dbdbdb;
-    background-color: #fff;
     cursor: pointer;
-    float: left;
-    margin-top:7px;
     z-index: 2;
     position: absolute;
+    left: 50px;
+    float: left;
 }
-.sun_details .det_ch_delivery button.current{
+
+.sun_details .det_ch_delivery button {
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    margin-top: 7px;
+    margin: 0 20px;
+    padding: 3px 10px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.sun_details .det_ch_delivery button.current {
     border-bottom: 1px solid #fff;
 }
-.sun_details .det_ch_delivery .area:hover .area_address{
+
+.sun_details .det_ch_delivery .select_area:hover .area_address {
     display: block;
 }
+
 .sun_details .area i {
     margin-left: 10px;
     font-size: 12px;
 }
 
 .sun_details .det_ch_delivery .area_address {
-    width: 470px;
+    width: 485px;
     background-color: #fff;
     padding: 15px;
     border: 1px solid #eee;
     position: absolute;
     top: 42px;
-    left: 82px;
-    z-index:1;
+    left: 70px;
+    z-index: 1;
     display: none;
-}
-
-.sun_details .det_ch_delivery .area_address>li {
-    border-bottom: 1px solid #eee;
-    padding: 1px;
-}
-
-.sun_details .det_ch_delivery .area_address>li>a {
-    height: 24px;
-    line-height: 24px;
-    border: 1px solid #eee;
-    display: inline-block;
+    text-align: left;
+    line-height: 30px;
 }
 
 .sun_details .det_ch_delivery .area_address ul {
@@ -216,8 +215,12 @@ body {
 }
 
 .sun_details .det_ch_delivery .area_address ul a {
-    padding: 5px 8px;
     display: inline-block;
+    padding: 2px 5px;
+}
+
+.sun_details .det_ch_delivery .area_address ul a:hover {
+    color: red;
 }
 
 .sun_details .det_ch_delivery .area_address span {

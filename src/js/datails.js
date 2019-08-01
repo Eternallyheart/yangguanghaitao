@@ -18,17 +18,17 @@ $(() => {
             let mX = e.pageX - $(this).offset().left - $(".details_middleArea").width() / 2;
             let mY = e.pageY - $(this).offset().top - $(".details_middleArea").height() / 2;
 
-            if(mX<=0){
-                mX=0;
+            if (mX <= 0) {
+                mX = 0;
             }
-            if(mX>= $(".details_middle").width()- $(".details_middleArea").width()){
-                mX= $(".details_middle").width()- $(".details_middleArea").width();
+            if (mX >= $(".details_middle").width() - $(".details_middleArea").width()) {
+                mX = $(".details_middle").width() - $(".details_middleArea").width();
             }
-            if(mY<=0){
-                mY=0;
+            if (mY <= 0) {
+                mY = 0;
             }
-            if(mY>= $(".details_middle").height()- $(".details_middleArea").height()){
-                mY= $(".details_middle").height()- $(".details_middleArea").height();
+            if (mY >= $(".details_middle").height() - $(".details_middleArea").height()) {
+                mY = $(".details_middle").height() - $(".details_middleArea").height();
             }
 
             $(".details_middleArea").css({
@@ -37,8 +37,8 @@ $(() => {
             })
 
             $(".details_bigImg").css({
-                left: -mX*scale,
-                top: -mY*scale
+                left: -mX * scale,
+                top: -mY * scale
             })
         })
 
@@ -49,23 +49,31 @@ $(() => {
 })
 
 //点击小图片切换大图片
-$(()=>{
-    $(".details_allImg").find("img").on("click",function(){
-        $(".details_middle").find("img").attr("src",$(this).attr("src"));
-        $(".details_bigImg").find("img").attr("src",$(this).attr("src"));
+$(() => {
+    $(".details_allImg").find("img").on("click", function () {
+        $(".details_middle").find("img").attr("src", $(this).attr("src"));
+        $(".details_bigImg").find("img").attr("src", $(this).attr("src"));
     })
 })
 
-//选择地址
-$(()=>{
-    $(".area").on("mouseover",function(){
+//选择地址 省份显示
+$(() => {
+    $(".area button").on("mouseenter", function () {
         $(this).addClass("current");
         $(".area_address").show();
-    }).on("mouseout",function(){
-        $(this).removeClass("current");
     })
-    $(".area_address").on("mouseleave",function(){
-        $(this).removeClass("current");
+    $(".area").on("mouseleave", function () {
+        $(this).children("button").removeClass("current");
+    })
+    $(".area_address").on("mouseenter",function(){
+        $(".area").children("button").addClass("current");
+    })
+    $(".area_address").on("mouseleave", function () {
+        $(".area").children("button").removeClass("current");
         $(".area_address").hide();
     })
+})
+//点击切换地址
+$(()=>{
+    $(".select_province a").on("click")
 })
