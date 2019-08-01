@@ -26,29 +26,60 @@ body {
 
 .sun_details .details_img {
     width: 410px;
+    position: relative;
 }
 
 .sun_details .details_middle {
     margin-bottom: 10px;
+    position: relative;
 }
 
 .sun_details .details_middle img {
     width: 410px;
-    height: 540px;
+    height: 410px;
     border: 1px solid #dbdbdd;
 }
 
 .sun_details .details_middleArea {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: move;
+    opacity: .2;
     display: none;
 }
 
-.sun_details .details_middleArea {
+.sun_details .details_bigArea {
+    width: 410px;
+    height: 410px;
+    overflow: hidden;
+    background-color: #000;
+    border: 1px solid #dbdbdd;
+    position: absolute;
+    left: 420px;
+    top: 0;
+    z-index: 3;
     display: none;
+}
+
+.sun_details .details_bigImg {
+    background-color: #000;
+    width: 820px;
+    height: 820px;
+    position: absolute;
 }
 
 .sun_details .details_allImg {
     margin-bottom: 25px;
     overflow: hidden;
+}
+
+.sun_details .details_bigImg img {
+    width: 820px;
+    height: 820px;
 }
 
 .sun_details .details_allImg li {
@@ -118,6 +149,10 @@ body {
     color: red;
 }
 
+.sun_details .det_ch_delivery {
+    position: relative;
+}
+
 .sun_details .det_ch_delivery p {
     padding: 10px 20px;
     height: 60px;
@@ -125,18 +160,79 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.sun_details .det_ch_delivery .province {
+.sun_details .det_ch_delivery .area {
     margin: 0 20px;
     padding: 3px 10px;
     border: 1px solid #dbdbdb;
-    display: inline-block;
     background-color: #fff;
     cursor: pointer;
+    float: left;
+    margin-top:7px;
+    z-index: 2;
+    position: absolute;
 }
-
-.sun_details .province i {
+.sun_details .det_ch_delivery button.current{
+    border-bottom: 1px solid #fff;
+}
+.sun_details .det_ch_delivery .area:hover .area_address{
+    display: block;
+}
+.sun_details .area i {
     margin-left: 10px;
     font-size: 12px;
+}
+
+.sun_details .det_ch_delivery .area_address {
+    width: 470px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #eee;
+    position: absolute;
+    top: 42px;
+    left: 82px;
+    z-index:1;
+    display: none;
+}
+
+.sun_details .det_ch_delivery .area_address>li {
+    border-bottom: 1px solid #eee;
+    padding: 1px;
+}
+
+.sun_details .det_ch_delivery .area_address>li>a {
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #eee;
+    display: inline-block;
+}
+
+.sun_details .det_ch_delivery .area_address ul {
+    padding: 10px;
+    display: none;
+}
+
+.sun_details .det_ch_delivery .area_address ul.show {
+    display: block;
+}
+
+.sun_details .det_ch_delivery .area_address ul a {
+    padding: 5px 8px;
+    display: inline-block;
+}
+
+.sun_details .det_ch_delivery .area_address span {
+    border: 1px solid #eee;
+    padding: 2px 10px;
+    height: 20px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.sun_details .det_ch_delivery .area_address i {
+    font-size: 12px;
+    width: 15px;
+    height: 24px;
+    margin-left: 5px;
 }
 
 .sun_details .det_ch_sale {
