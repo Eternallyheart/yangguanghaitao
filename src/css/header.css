@@ -230,7 +230,9 @@ dd {
 .sun_header .nav_menu_list dt a:hover {
     color: #333;
 }
-
+.sun_header .nav_menu_list dd a:hover {
+    color: red;
+}
 .sun_header .nav_menu_list dl {
     border-bottom: 1px solid #dcdcdc;
 }

@@ -21,9 +21,11 @@ body {
     height: 400px;
     overflow: hidden;
 }
-.index .in_banner main li{
+
+.index .in_banner main li {
     overflow: hidden;
 }
+
 .index .in_banner main li a {
     width: 100%;
     height: 400px;
@@ -59,19 +61,20 @@ body {
     display: block;
 }
 
-.index  .banner_show {
+.index .banner_show {
     width: 130px;
     height: 22px;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform:translate(-50%,0);
+    transform: translate(-50%, 0);
     border-radius: 10px;
     text-align: center;
     line-height: 22px;
 }
-.index .banner_show span{
+
+.index .banner_show span {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -80,9 +83,11 @@ body {
     cursor: pointer;
     margin-right: 5px;
 }
-.index .banner_show span.show{
+
+.index .banner_show span.show {
     background-color: #fe5322;
 }
+
 .index .banner_notice {
     height: 400px;
     width: 230px;
@@ -242,11 +247,13 @@ body {
     padding-left: 30px;
     position: relative;
 }
-.index_content .fi_pi_right ul li img{
+
+.index_content .fi_pi_right ul li img {
     width: 40px;
     height: 40px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
+
 .index_content .fi_pi_right ul li span {
     display: block;
     width: 20px;
@@ -283,12 +290,14 @@ body {
     overflow: hidden;
 }
 
-.index_content .fi_pi_right  li.current{
+.index_content .fi_pi_right li.current {
     background-color: #eee;
 }
-.index_content .fi_pi_right  span.current{
+
+.index_content .fi_pi_right span.current {
     background-color: #eee;
 }
+
 .index_content .fi_pi_right .fi_pi_rank {
     padding: 23px;
     padding-left: 44px;
@@ -305,6 +314,7 @@ body {
     flex-wrap: wrap;
     padding-left: 20px;
     justify-content: space-around;
+    transform-style: preserve-3d;
 }
 
 .index_content .fi_pi_main figure {
@@ -320,10 +330,11 @@ body {
 }
 
 .index_content .fi_pi_main figure.current {
-    transition:all 0.5s;
-    transform: translate(0,-5px);
-    box-shadow: 5px 5px 2px 1px #eee,-5px -5px 2px 1px #eee;
+    transition: all 0.3s;
+    transform: translateZ(20px);
+    box-shadow: 5px 5px 5px 5px #dbdbdb, -5px -5px 5px 5px #dbdbdb;
 }
+
 .index_content .fi_pi_main figure a:hover {
     color: red;
 }
@@ -360,16 +371,24 @@ body {
     height: 290px;
     width: 220px;
     position: relative;
+    overflow: hidden;
 }
 
 .skin_care .fi_pi_right ul:first-of-type {
     padding: 25px 0;
 }
 
-.skin_care .fi_pi_right ul:first-of-type div {
-    width: 100%;
-    height: 100%;
+.skin_care .fi_pi_right ul:first-of-type .fi_pi_box {
+    width: 220px;
+    height: 240px;
     overflow: hidden;
+    position: absolute;
+    top: 25px;
+}
+
+.skin_care .fi_pi_move {
+    position: absolute;
+    top: 0;
 }
 
 .skin_care .fi_pi_right ul span {
@@ -382,6 +401,7 @@ body {
     cursor: pointer;
     background-image: url(./../images/brand_jt_03.jpg);
     background-repeat: no-repeat;
+    z-index: 1;
 }
 
 .skin_care .fi_pi_right ul span:first-of-type {
@@ -403,6 +423,7 @@ body {
 
 .skin_care .fi_pi_right ul:first-of-type li {
     padding: 0 20px;
+    height: 60px;
 }
 
 .skin_care .fi_pi_right ul:first-of-type li img {
@@ -429,9 +450,11 @@ body {
     justify-content: space-between;
     background-color: #f3f3f3;
 }
-.intel_digit .fi_pi_right ul:first-of-type div:first-of-type{
+
+.intel_digit .fi_pi_right ul:first-of-type div:first-of-type {
     margin-bottom: 20px;
 }
+
 .index_content .guess_love {
     padding-bottom: 30px;
     margin-bottom: 0;
@@ -448,7 +471,7 @@ body {
     line-height: 20px;
 }
 
-.index_content .guess_love h2 i{
+.index_content .guess_love h2 i {
     color: red;
     font-size: 21px;
     margin-right: 10px;
@@ -478,12 +501,14 @@ body {
 .index_content .mall_list {
     width: 440px;
     position: relative;
+    overflow: hidden;
 }
 
 .index_content .list_btn {
     position: absolute;
     width: 100%;
     top: 150px;
+    z-index:2;
 }
 
 .index_content .list_btn span {
@@ -494,8 +519,14 @@ body {
     font-size: 22px;
     text-align: center;
     line-height: 50px;
-    color: #555;
+    color: #999;
     cursor: pointer;
+    z-index: 1;
+}
+
+.index_content .list_btn span:hover {
+    background-color: #333;
+    color: #fe5322;
 }
 
 .index_content .list_left {
@@ -506,9 +537,17 @@ body {
     border-radius: 0 50px 50px 0;
 }
 
-.index_content .mall_list_all {
-    padding: 20px;
+.index_content .mall_list_box {
+    width: 400px;
+    height: 260px;
+    margin: 20px;
     overflow: hidden;
+    position: relative;
+}
+
+.index_content .mall_list_all {
+    position: absolute;
+    height: 260px;
 }
 
 .index_content .mall_list_all li {
@@ -534,6 +573,7 @@ body {
     top: 155px;
     left: 0;
 }
-#header .sun_header .nav_list{
+
+#header .sun_header .nav_list {
     display: block;
 }
