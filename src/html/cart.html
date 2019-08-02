@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./../css/base.css">
     <link rel="stylesheet" href="./../css/cart.css">
+    <script src="./../js/jquery-3.4.1.min.js"></script>
+    <script src="./../js/cart.js"></script>
 </head>
 
 <body>
@@ -16,87 +18,96 @@
             <div class="welcome container">
                 <li class="fl">您好,欢迎光临阳光海淘</li>
                 <li class="fr">
-                    <a href="">注册</a>
-                    <a href="">登录</a>
+                    <a href="./rigister.html">注册</a>
+                    <a href="./login.html">登录</a>
                     <a href=""><img src="./../images/qq.gif" alt=""></a>
                     <a href=""><img src="./../images/weixin.gif" alt=""></a>
                 </li>
         </header>
         <main class="container">
             <nav class="sun_cart_nav">
-                <h1 class="sun_cart_logo fl"><a href="">阳光海淘</a></h1>
+                <h1 class="sun_cart_logo fl"><a href="./../index.html">阳光海淘</a></h1>
                 <div class="sun_cart_state fr">
                 </div>
             </nav>
             <div class="f12">
                 <ul class="sun_cart_title">
-                    <li class="cart_title_one"><input type="checkbox">全选</li>
+                    <li class="cart_title_one"><input type="checkbox" id="checkboxAll">全选</li>
                     <li class="cart_title_two">商品</li>
                     <li class="cart_title_one">单价(元)</th>
                     <li class="cart_title_one">数量</li>
                     <li class="cart_title_three">操作</li>
                 </ul>
                 <div class="sun_cart_platform">
-                    <li class="sun_cart_"><input type="checkbox">平台</li>
+                    <li class="sun_cart_plat"><input type="checkbox" id="checkboxPlat">平台</li>
                 </div>
                 <div class="sun_cart_content">
-                    <div class="sun_cart_product">
-                        <div><input type="checkbox"></div>
-                        <div class="sun_cart_goods">
-                            <ul><a href=""><img src="./../images/100_201706131629352508470.jpg" alt=""></a></ul>
-                            <ul>
-                                <a href="">德国 catrice 粉底液Nude Illusion 植物清透裸妆 30毫升</a>
-                                <li>包装规格：<span>10号4瓶</span>;</li>
-                                <li>支持自提</li>
-                            </ul>
+                    <div class="cart_product">
+                        <div class="sun_cart_product">
+                            <div><input type="checkbox"></div>
+                            <div class="sun_cart_goods">
+                                <ul><a href=""><img src="./../images/100_201706131629352508470.jpg" alt=""></a></ul>
+                                <ul>
+                                    <a href="">德国 catrice 粉底液Nude Illusion 植物清透裸妆 30毫升</a>
+                                    <li>包装规格：<span>10号4瓶</span>;</li>
+                                    <li>支持自提</li>
+                                </ul>
+                            </div>
+                            <div class="sun_cart_price">¥<span class="cart_product_price">300.00</span></div>
+                            <div class="sun_cart_price sun_cart_number">
+                                <span class="sun_cart_reduce">-</span>
+                                <span class="cart_pro_number">1</span>
+                                <span class="sun_cart_add">+</span>
+                            </div>
+                            <div class="sun_cart_price sun_cart_delete"><a href="javascript:;">删除</a></div>
                         </div>
-                        <div class="sun_cart_price">¥300.00</div>
-                        <div class="sun_cart_price sun_cart_number">
-                            <span class="sun_cart_add">-</span>
-                            <span class="cart_pro_number">1</span>
-                            <span class="sun_cart_reduce">+</span>
-                        </div>
-                        <div class="sun_cart_price sun_cart_delete"><a href="">删除</a></div>
+                        <div class="line"></div>
                     </div>
-                    <div class="sun_cart_product">
-                        <div><input type="checkbox"></div>
-                        <div class="sun_cart_goods">
-                            <ul><a href=""><img src="./../images/100_201708111152057008940.jpg" alt=""></a></ul>
-                            <ul>
-                                <a href="">日本大王(GOO.N) 维E系列 婴儿纸尿裤 大号L54片(9-14kg) 原装进口</a>
-                                <li>包装规格：<span>54片</span>;</li>
-                                <li>支持自提</li>
-                            </ul>
+                    <div class="cart_product">
+                        <div class="sun_cart_product">
+                            <div><input type="checkbox"></div>
+                            <div class="sun_cart_goods">
+                                <ul><a href=""><img src="./../images/100_201708111152057008940.jpg" alt=""></a></ul>
+                                <ul>
+                                    <a href="">日本大王(GOO.N) 维E系列 婴儿纸尿裤 大号L54片(9-14kg) 原装进口</a>
+                                    <li>包装规格：<span>54片</span>;</li>
+                                    <li>支持自提</li>
+                                </ul>
+                            </div>
+                            <div class="sun_cart_price">¥<span class="cart_product_price">99.00</span></div>
+                            <div class="sun_cart_price sun_cart_number">
+                                <span class="sun_cart_reduce">-</span>
+                                <span class="cart_pro_number">1</span>
+                                <span class="sun_cart_add">+</span>
+                            </div>
+                            <div class="sun_cart_price sun_cart_delete"><a href="javascript:;">删除</a></div>
                         </div>
-                        <div class="sun_cart_price">¥99.00</div>
-                        <div class="sun_cart_price sun_cart_number">
-                            <span class="sun_cart_add">-</span>
-                            <span class="cart_pro_number">1</span>
-                            <span class="sun_cart_reduce">+</span>
-                        </div>
-                        <div class="sun_cart_price sun_cart_delete"><a href="">删除</a></div>
+                        <div class="line"></div>
                     </div>
-                    <div class="sun_cart_product">
-                        <div><input type="checkbox"></div>
-                        <div class="sun_cart_goods">
-                            <ul><a href=""><img src="./../images/160_201706021619554465410.png" alt=""></a></ul>
-                            <ul>
-                                <a href="">Delonghi德龙EN266 全自动胶囊咖啡机</a>
-                                <li>支持自提</li>
-                            </ul>
+                    <div class="cart_product">
+                        <div class="sun_cart_product">
+                            <div><input type="checkbox"></div>
+                            <div class="sun_cart_goods">
+                                <ul><a href=""><img src="./../images/160_201706021619554465410.png" alt=""></a></ul>
+                                <ul>
+                                    <a href="">Delonghi德龙EN266 全自动胶囊咖啡机</a>
+                                    <li>支持自提</li>
+                                </ul>
+                            </div>
+                            <div class="sun_cart_price">¥<span class="cart_product_price">1498.00</span></div>
+                            <div class="sun_cart_price sun_cart_number">
+                                <span class="sun_cart_reduce">-</span>
+                                <span class="cart_pro_number">1</span>
+                                <span class="sun_cart_add">+</span>
+                            </div>
+                            <div class="sun_cart_price sun_cart_delete"><a href="javascript:;">删除</a></div>
                         </div>
-                        <div class="sun_cart_price">¥1498.00</div>
-                        <div class="sun_cart_price sun_cart_number">
-                            <span class="sun_cart_add">-</span>
-                            <span class="cart_pro_number">1</span>
-                            <span class="sun_cart_reduce">+</span>
-                        </div>
-                        <div class="sun_cart_price sun_cart_delete"><a href="">删除</a></div>
+                        <div class="line"></div>
                     </div>
                 </div>
                 <div class="sun_cart_line"></div>
                 <div class="sun_cart_settle">
-                    <a href="">删除选中物品</a>
+                    <a href="javascript:;" class="delete_select">删除选中物品</a>
                     <ul class="fr">
                         <li>已选择 <span class="cart_select_num">4</span> 件商品</li>
                         <li>合计(不含运费): <span class="cart_select_price">¥1996.00</span></li>

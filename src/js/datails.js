@@ -57,8 +57,8 @@ $(() => {
 })
 
 //点击收藏
-$(()=>{
-    $(".save_product").on("click",function(){})
+$(() => {
+    $(".save_product").on("click", function () {})
 })
 
 //选择地址 省份显示
@@ -105,12 +105,12 @@ $(() => {
                     $(".road").html(strRoad);
                     $(".select_address").text(strProvince + " " + strCity + " " + strCounty + " " + strRoad);
                     $(this).parent().hide();
-                    
+
                     $(".area button").on("mouseenter", function () {
                         $(".select_province").show();
                         $(".area_address").find("span").eq(0).addClass("current");
                     })
-                    
+
                     $(".area_address").find("span").on("click", function () {
                         $(this).addClass("current").siblings().removeClass("current");
                         $(".area_address>ul").eq($(this).index()).show().siblings("ul").hide();
@@ -121,19 +121,19 @@ $(() => {
     })
 })
 //点击增加购买数量
-$(()=>{
-    let buyNum=$(".det_ch_cart").text();
-    $(".det_ch_add").on("click",function(){
+$(() => {
+    let buyNum = $(".det_ch_cart").text();
+    $(".det_ch_add").on("click", function () {
         buyNum++;
-        if(buyNum>=$(".det_ch_stock").text()){
-            buyNum=$(".det_ch_stock").text();
+        if (buyNum >= $(".det_ch_stock").text()) {
+            buyNum = $(".det_ch_stock").text();
         }
         $(".det_ch_cart").text(buyNum);
     })
-    $(".det_ch_reduce").on("click",function(){
+    $(".det_ch_reduce").on("click", function () {
         buyNum--;
-        if(buyNum<=1){
-            buyNum=1;
+        if (buyNum <= 1) {
+            buyNum = 1;
         }
         $(".det_ch_cart").text(buyNum);
     })
@@ -145,47 +145,47 @@ $(()=>{
 
 
 //热销推荐 鼠标悬停 显示分享
-$(()=>{
-    $(".details_banner").find("figure").on("mouseenter",function(){
+$(() => {
+    $(".details_banner").find("figure").on("mouseenter", function () {
         $(this).append($(".banner_share"));
         $(".banner_share").show();
-    }).on("mouseleave",function(){
+    }).on("mouseleave", function () {
         $(this).remove($(".banner_share"));
         $(".banner_share").hide();
     })
 })
 
 //内容图片 鼠标悬停 显示分享
-$(()=>{
-    $(".su_con_pro_img").on("mouseenter",function(){
+$(() => {
+    $(".su_con_pro_img").on("mouseenter", function () {
         $(this).append($(".content_share"));
         $(".content_share").show();
-    }).on("mouseleave",function(){
+    }).on("mouseleave", function () {
         $(this).remove($(".content_share"));
         $(".content_share").hide();
     })
 })
 
 //相关商品 鼠标悬停 显示分享
-$(()=>{
-    $(".det_re_product").find("figure").on("mouseenter",function(){
+$(() => {
+    $(".det_re_product").find("figure").on("mouseenter", function () {
         console.log($(".relate_share"))
         $(this).append($(".relate_share"));
         $(".relate_share").show();
-    }).on("mouseleave",function(){
+    }).on("mouseleave", function () {
         $(this).remove($(".relate_share"));
         $(".relate_share").hide();
     })
 })
 
 //产品介绍 tab栏切换
-$(()=>{
-    $(".pro_su_title").find("li").on("click",function(){
+$(() => {
+    $(".pro_su_title").find("li").on("click", function () {
         console.log($(".pro_su_content"))
         $(this).addClass("current").siblings().removeClass("current");
         $(".pro_su_content>div").eq($(this).index()).addClass("current").siblings().removeClass("current");
     })
-    $(".su_con_app_title").find("li").on("click",function(){
+    $(".su_con_app_title").find("li").on("click", function () {
         console.log($(".su_con_app_content"))
         $(this).addClass("show").siblings().removeClass("show");
         $(".su_con_app_content>ul").eq($(this).index()).addClass("show").siblings().removeClass("show");
@@ -193,3 +193,18 @@ $(()=>{
 })
 
 //滑动条滑动 导航栏固定
+$(() => {
+    $(document).scroll("load", function () {
+        let y = $(this).scrollTop();
+        if (y >= 780) {
+            $(".pro_su_title").css({
+                position: "fixed",
+                top: 0
+            })
+            $(".pro_su_content").css("marginTop", $(".pro_su_title").height())
+        } else {
+            $(".pro_su_title").css("position", "static");
+            $(".pro_su_content").css("marginTop", 0);
+        }
+    })
+})

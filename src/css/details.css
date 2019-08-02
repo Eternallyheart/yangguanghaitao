@@ -447,6 +447,9 @@ body {
 .sun_details .pro_su_title {
     height: 40px;
     border: 1px solid #eee;
+    width: 100%;
+    z-index:1000;
+    background-color:#fff;
 }
 
 .sun_details .pro_su_title li {
@@ -614,6 +617,7 @@ body {
 .sun_details .details_relate {
     border: 1px solid #eee;
     padding: 0 20px;
+    margin-bottom: 40px;
 }
 
 .sun_details .details_relate h3 {

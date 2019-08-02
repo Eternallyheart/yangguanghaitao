@@ -50,63 +50,85 @@ body {
     background: url(./../images/logo.gif) no-repeat center;
 }
 
-.sun_cart table {
-    width: 100%;
-}
-
 .sun_cart .sun_cart_title {
-    height: 50px;
-    line-height: 50px;
+    height: 46px;
+    line-height: 46px;
     background: #eee;
     color: #999;
 }
-.sun_cart .sun_cart_title li{
+
+.sun_cart .sun_cart_title li {
     float: left;
 }
-.sun_cart .sun_cart_title input{
+
+.sun_cart .sun_cart_title input {
     margin-right: 10px;
 }
-.sun_cart .cart_title_one{
+
+.sun_cart .cart_title_one {
     width: 200px;
-    padding:0 10px;
+    padding: 0 10px;
 }
-.sun_cart .cart_title_two{
+
+.sun_cart .cart_title_two {
     width: 500px;
 }
-.sun_cart .sun_cart_platform{
+
+.sun_cart .sun_cart_platform {
     height: 52px;
     line-height: 50px;
     padding: 0 20px;
     color: red;
-}
-.sun_cart .sun_cart_platform input{
-    margin-right: 40px;
-}
-.sun_cart .sun_cart_content{
-    border: 1px solid #eee;
-    border-top:2px solid #fe5322;
-    margin-bottom: 80px;
+    margin-top: 10px;
 }
 
-.sun_cart .sun_cart_product{
+.sun_cart .sun_cart_plat {
+    background: url(./../images/icon_platform_pc.png) no-repeat 25px center;
+}
+
+.sun_cart .sun_cart_platform input {
+    margin-right: 40px;
+}
+
+.sun_cart .sun_cart_content {
+    border: 1px solid #eee;
+    border-top: 2px solid #fe5322;
+    margin-bottom: 80px;
+}
+.sun_cart .cart_product .current{
+    background-color: #fffaf8;
+}
+.sun_cart .sun_cart_product {
     width: 100%;
     overflow: hidden;
     padding: 20px 30px;
 }
-.sun_cart .sun_cart_product div{
+.sun_cart .cart_product .line{
+    height: 2px;
+    width: 1100px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+}
+.sun_cart .cart_product:last-of-type .line{
+    border:none;
+}
+.sun_cart .sun_cart_product div {
     float: left;
 }
-.sun_cart .sun_cart_product input{
-    margin-right:30px; 
+
+.sun_cart .sun_cart_product input {
+    margin-right: 30px;
 }
-.sun_cart .sun_cart_goods{
+
+.sun_cart .sun_cart_goods {
     overflow: hidden;
     width: 580px;
 }
-.sun_cart .sun_cart_goods ul{
+
+.sun_cart .sun_cart_goods ul {
     float: left;
     line-height: 24px;
-    color:#999;
+    color: #999;
 }
 
 .sun_cart .sun_cart_goods ul li:last-of-type {
@@ -116,40 +138,52 @@ body {
     margin-top: 20px;
     background: #eee url(./../images/ziti_03.jpg) no-repeat left;
 }
-.sun_cart .sun_cart_goods ul a:hover{
+
+.sun_cart .sun_cart_goods ul a:hover {
     color: red;
 }
-.sun_cart .sun_cart_goods img{
+
+.sun_cart .sun_cart_goods img {
     border: 1px solid #eee;
     width: 100px;
     margin-right: 20px;
 }
-.sun_cart .sun_cart_price{
+
+.sun_cart .sun_cart_price {
     width: 170px;
     height: 80px;
     line-height: 80px;
     text-align: center;
     color: #666;
 }
+
 .sun_cart .sun_cart_number {
     line-height: 30px;
     padding-top: 25px;
 }
-.sun_cart .sun_cart_number span{
+
+.sun_cart .sun_cart_number span {
     display: inline-block;
     width: 30px;
     height: 30px;
     border: 1px solid #eee;
+    cursor: pointer;
+    user-select: none;
 }
-.sun_cart .sun_cart_number .cart_pro_number{
+
+.sun_cart .sun_cart_number .cart_pro_number {
     width: 70px;
 }
-.sun_cart .sun_cart_line{
+.sun_cart .sun_cart_delete a{
+    color: #535353;
+}
+.sun_cart .sun_cart_line {
     height: 4px;
     background-color: #eee;
     margin-bottom: 20px;
 }
-.sun_cart .sun_cart_settle{
+
+.sun_cart .sun_cart_settle {
     height: 50px;
     background-color: #eee;
     border: 1px solid #999;
@@ -157,25 +191,32 @@ body {
     padding-left: 25px;
     color: #666;
 }
-.sun_cart .sun_cart_settle ul li{
+.sun_cart .delete_select{
+    color: #535353;
+}
+.sun_cart .sun_cart_settle ul li {
     float: left;
     margin-left: 40px;
 }
-.sun_cart .cart_select_num{
+
+.sun_cart .cart_select_num {
     color: red;
 }
-.sun_cart .cart_select_price{
+
+.sun_cart .cart_select_price {
     color: red;
     font-size: 24px;
     padding: 0 15px;
 }
-.sun_cart .cart_select_buy{
+
+.sun_cart .cart_select_buy {
     width: 100px;
     height: 50px;
     background-color: #fe5322;
     font-size: 16px;
     color: #fff;
 }
+
 .sun_cart footer {
     padding-top: 30px;
     text-align: center;
