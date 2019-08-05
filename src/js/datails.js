@@ -2,6 +2,11 @@ $(() => {
     $("#header").load("./header.html");
     $("#footer").load("./footer.html");
     $("#aside").load("./aside.html");
+    $("img").lazyload({
+        placeholder: "http://hbimg.b0.upaiyun.com/c2d9a837d3d9536d7cdb535e3680540e2b4401493b6e5-25A3UX_fw658",
+        effect: "fadeIn",
+        threshold: 200
+    })
 })
 //详情页放大镜js
 $(() => {
@@ -50,7 +55,7 @@ $(() => {
 
 //点击小图片切换大图片
 $(() => {
-    $(".details_allImg").find("img").on("click", function () {
+    $(".details_allImg").find("img").on("mouseenter", function () {
         $(".details_middle").find("img").attr("src", $(this).attr("src"));
         $(".details_bigImg").find("img").attr("src", $(this).attr("src"));
     })
@@ -157,11 +162,11 @@ $(() => {
 
 //内容图片 鼠标悬停 显示分享
 $(() => {
-    $(".su_con_pro_img").on("mouseenter", function () {
+    $(".su_con_pro_img>div").on("mouseenter", function () {
         $(this).append($(".content_share"));
         $(".content_share").show();
     }).on("mouseleave", function () {
-        $(this).remove($(".content_share"));
+        $(this).stop().remove($(".content_share"));
         $(".content_share").hide();
     })
 })

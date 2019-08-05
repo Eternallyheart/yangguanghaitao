@@ -2,10 +2,16 @@ $(() => {
     $("#header").load("./html/header_index.html");
     $("#footer").load("./html/footer_index.html");
     $("#aside").load("./html/aside_index.html");
+    $("img").lazyload({
+        placeholder: "http://hbimg.b0.upaiyun.com/c2d9a837d3d9536d7cdb535e3680540e2b4401493b6e5-25A3UX_fw658",
+        effect: "fadeIn",
+        threshold: 200
+    })
 })
 //banner 轮播图
 $(() => {
     let index = 0;
+
     function autoPlay() {
         index++;
         if (index >= 5) {
@@ -18,83 +24,97 @@ $(() => {
     $(".banner_show>span").on("click", function () {
         console.log($(this).index());
         clearInterval(timer);
-        index = $(this).index()-1;
+        index = $(this).index() - 1;
         autoPlay();
         timer = setInterval(autoPlay, 3000);
     })
-    $(".in_banner>main").on("mouseenter",function(){
+    $(".in_banner>main").on("mouseenter", function () {
         clearInterval(timer);
-    }).on("mouseleave",function(){
+    }).on("mouseleave", function () {
         timer = setInterval(autoPlay, 3000);
     })
 })
+
 //.侧边栏鼠标悬停改变背景
-$(()=>{
-    $(".fi_pi_right>ul>li").on("mouseenter",function(){
+$(() => {
+    $(".fi_pi_right>ul>li").on("mouseenter", function () {
         $(this).addClass("current").siblings().removeClass("current");
-    }).on("mouseleave",()=>{
+    }).on("mouseleave", () => {
         $(".fi_pi_right>ul>li").removeClass("current");
     })
 })
+
 //中间figure块鼠标悬停效果
-$(()=>{
-    $(".fi_pi_main>figure").on("mouseenter",function(){
+$(() => {
+    $(".fi_pi_main>figure").on("mouseenter", function () {
         $(this).addClass("current").siblings().removeClass("current");
-    }).on("mouseleave",function(){
+    }).on("mouseleave", function () {
         $(".fi_pi_main>figure").removeClass("current");
     })
 })
+
 //skin_care 侧边栏点击移动切换链接效果
-$(()=>{
-    let index=0;
-    $(".skin_care>.fi_pi_right span").eq(0).on("click",function(){
+$(() => {
+    let index = 0;
+    $(".skin_care>.fi_pi_right span").eq(0).on("click", function () {
         index++;
-        if(index>=$(".skin_care .fi_pi_move>li").length-4){
-            index=$(".skin_care .fi_pi_move>li").length-4;
+        if (index >= $(".skin_care .fi_pi_move>li").length / 2 - 4) {
+            index = $(".skin_care .fi_pi_move>li").length / 2 - 4;
         }
-        $(this).nextAll(".fi_pi_box").children(".fi_pi_move").animate({top:-60*index});
+        $(this).nextAll(".fi_pi_box").children(".fi_pi_move").stop().animate({
+            top: -60 * index
+        });
     })
-    $(".skin_care>.fi_pi_right span").eq(1).on("click",function(){
+    $(".skin_care>.fi_pi_right span").eq(1).on("click", function () {
         index--;
-        if(index<=0){
-            index=0;
+        if (index <= 0) {
+            index = 0;
         }
-        $(this).next().children(".fi_pi_move").animate({top:-60*index});
+        $(this).next().children(".fi_pi_move").stop().animate({
+            top: -60 * index
+        });
     })
 })
-$(()=>{
-    let index=0;
-    $(".skin_care>.fi_pi_right span").eq(2).on("click",function(){
+$(() => {
+    let index = 0;
+    $(".tastes_food>.fi_pi_right span").eq(0).on("click", function () {
         index++;
-        if(index>=$(".skin_care .fi_pi_move>li").length-4){
-            index=$(".skin_care .fi_pi_move>li").length-4;
+        if (index >= $(".tastes_food .fi_pi_move>li").length - 4) {
+            index = $(".tastes_food .fi_pi_move>li").length - 4;
         }
-        $(this).nextAll(".fi_pi_box").children(".fi_pi_move").animate({top:-60*index});
+        $(this).nextAll(".fi_pi_box").children(".fi_pi_move").animate({
+            top: -60 * index
+        });
     })
-    $(".skin_care>.fi_pi_right span").eq(3).on("click",function(){
+    $(".tastes_food>.fi_pi_right span").eq(1).on("click", function () {
         index--;
-        if(index<=0){
-            index=0;
+        if (index <= 0) {
+            index = 0;
         }
-        $(this).next().children(".fi_pi_move").animate({top:-60*index});
+        $(this).next().children(".fi_pi_move").animate({
+            top: -60 * index
+        });
     })
 })
 //mall_infor晒单轮播图
-$(()=>{
-    let index=0;
-    function newAutoPlay(){
+$(() => {
+    let index = 0;
+
+    function newAutoPlay() {
         index++;
-        if(index>=$(".mall_list_all>li").length-2){
-            index=0;
+        if (index >= $(".mall_list_all>li").length - 2) {
+            index = 0;
         }
-        $(".mall_list_all").animate({left:index*-200});
+        $(".mall_list_all").animate({
+            left: index * -200
+        });
     }
     let newTimer = setInterval(newAutoPlay, 3000);
     $(".list_left").on("click", function () {
         clearInterval(newTimer);
-        index-=2;
-        if(index==-2){
-            index=-1;
+        index -= 2;
+        if (index == -2) {
+            index = -1;
         }
         newAutoPlay();
         newTimer = setInterval(newAutoPlay, 3000);
@@ -104,9 +124,9 @@ $(()=>{
         newAutoPlay();
         newTimer = setInterval(newAutoPlay, 3000);
     })
-    $(".mall_list_all").on("mouseenter",function(){
+    $(".mall_list_all").on("mouseenter", function () {
         clearInterval(newTimer);
-    }).on("mouseleave",function(){
+    }).on("mouseleave", function () {
         newTimer = setInterval(newAutoPlay, 3000);
     })
 })

@@ -407,14 +407,15 @@ body {
     width: 100%;
 }
 
-.sun_details .relate_share{
+.sun_details .relate_share {
     width: 100%;
 }
+
 .sun_details .share_content a:nth-child(6) {
     background-position: 0px -1612px;
 }
 
-.sun_details .share_content a:nth-child(7)  {
+.sun_details .share_content a:nth-child(7) {
     background-position: 0px 0px;
 }
 
@@ -448,8 +449,8 @@ body {
     height: 40px;
     border: 1px solid #eee;
     width: 100%;
-    z-index:1000;
-    background-color:#fff;
+    z-index: 1000;
+    background-color: #fff;
 }
 
 .sun_details .pro_su_title li {
@@ -469,8 +470,8 @@ body {
     border-bottom: 0;
     color: #fe5322;
     position: relative;
-    top:-1px;
-    left:-1px;
+    top: -1px;
+    left: -1px;
     background: url(./../images/line_03.png) no-repeat center top;
 }
 
@@ -478,12 +479,15 @@ body {
     border: 1px solid #eee;
     border-top: none;
 }
-.sun_details .pro_su_content>div{
+
+.sun_details .pro_su_content>div {
     display: none;
 }
-.sun_details .pro_su_content>div.current{
+
+.sun_details .pro_su_content>div.current {
     display: block;
 }
+
 .sun_details .su_con_product {
     padding: 25px;
     padding-top: 50px;
@@ -494,13 +498,19 @@ body {
     line-height: 26px;
     color: #333;
 }
-.sun_details .su_con_product p:last-of-type{
+
+.sun_details .su_con_product p:last-of-type {
     border-bottom: 1px solid #eee;
     padding-bottom: 30px;
 }
+
 .sun_details .su_con_pro_img {
     width: 592px;
     margin: 10px auto;
+    position: relative;
+}
+
+.sun_details .su_con_pro_img>div {
     position: relative;
 }
 
@@ -552,6 +562,8 @@ body {
 
 .sun_details .su_con_app_content {
     width: 100%;
+    padding: 20px;
+    overflow: hidden;
 }
 
 .sun_details .su_con_app_content ul {
@@ -560,12 +572,92 @@ body {
     display: none;
 }
 
-.sun_details .su_con_app_content ul.show{
+.sun_details .su_con_app_content ul.show {
     display: block;
 }
-.sun_details .su_con_record {
+
+.sun_details .su_con_app_content ul li {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #dedede;
+    padding: 10px;
+}
+
+.five_star_praise .st_pra_person {
+    width: 80px;
+    padding: 0 10px;
+}
+
+.five_star_praise .st_pra_person img {
+    width: 40px;
+    height: 40px;
+}
+
+.five_star_praise .st_pra_content {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.five_star_praise .star_praise img {
+    width: 20px;
+    height: 20px;
+}
+
+.five_star_praise .st_pra_img img {
+    width: 200px;
+    height: 200px;
+}
+
+.pro_su_content .turn_page {
+    float: right;
+    height: 42px;
+    line-height: 42px;
+    color: #999;
+}
+
+.pro_su_content .turn_page li {
+    float: right;
+}
+
+.pro_su_content .page_input {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin: 5px 10px;
+    text-align: center;
+}
+
+.pro_su_content .page_click {
+    width: 50px;
+    height: 30px;
+    background: #f3f3f3;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.pro_su_content .page_cur {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 4px;
+    margin: 5px;
+    color: red;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.su_con_record {
     padding: 25px;
-    padding-bottom: 40px;
+    text-align: center;
+    color: #999;
+    overflow: hidden;
+    width: 100%;
 }
 
 .sun_details .su_con_record table {
@@ -577,6 +669,25 @@ body {
     height: 40px;
     line-height: 40px;
     color: #888;
+}
+
+.su_con_record tr {
+    margin: 10px 0;
+    border-bottom: 1px dashed #dedede;
+}
+
+.su_con_record td {
+    padding: 10px;
+}
+
+.su_con_record img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.su_con_record .turn_page {
+    margin-top: 10px;
 }
 
 .sun_details .su_con_consult {
