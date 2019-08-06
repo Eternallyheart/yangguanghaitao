@@ -164,11 +164,12 @@
                             </div>
                             <div class="det_ch_number">
                                 <span>数量 : </span>
-                                <span class="det_ch_cart">1</span>
+                                <textarea class="det_ch_cart">1</textarea>
                                 <span class="det_ch_num det_ch_add"><i class="iconfont icon-shangla"></i></span>
                                 <span class="det_ch_num det_ch_reduce "><i class="iconfont icon-weibiaoti1"></i></span>
-                                <span class="det_stock">库存 : </span>
-                                <span class="det_ch_stock">999</span>
+
+                                <span class="det_ch_stock fr">999</span>
+                                <span class="det_stock fr">库存 : </span>
                             </div>
                             <li class="det_ch_btn">
                                 <button class="det_ch_buy">立即购买</button>
@@ -227,8 +228,8 @@
                     </div>
                     <ul class="pro_su_title">
                         <li class="current">商品详情</li>
-                        <li>商品评价 <span>0</span></li>
-                        <li>成交记录 <span>0</span></li>
+                        <li>商品评价 <span class="appraise_num">0</span></li>
+                        <li>成交记录 <span class="record_num">0</span></li>
                         <li>商品咨询 <span>0</span></li>
                     </ul>
                     <div class="pro_su_content f12">
@@ -266,18 +267,21 @@
                                     <li class="su_app_commentary">0%</li>
                                     <span>好评度</span>
                                 </ul>
-                                <ul class="su_con_app_progress fl">
-                                    <p>好评(<span>0%</span>)<progress value='0' max='100'></progress></p>
-                                    <p>中评(<span>0%</span>)<progress value='0' max='100'></progress></p>
-                                    <p>差评(<span>0%</span>)<progress value='0' max='100'></progress></p>
+                                <ul class="su_con_app_progress fr">
+                                    <p>好评(<span class="good_appraise">0%</span>)<progress value='0' max='100'
+                                            class="good_app_meter"></progress></p>
+                                    <p>中评(<span class="center_appraise">0%</span>)<progress value='0' max='100'
+                                            class="cen_app_meter"></progress></p>
+                                    <p>差评(<span class="bad_appraise">0%</span>)<progress value='0' max='100'
+                                            class="bad_app_meter"></progress></p>
                                 </ul>
                             </div>
                             <ul class="su_con_app_title">
-                                <li class="show">全部评价(<span>0</span>)</li>
-                                <li>好评(<span>0</span>)</li>
-                                <li>中评(<span>0</span>)</li>
-                                <li>差评(<span>0</span>)</li>
-                                <li>有图(<span>0</span>)</li>
+                                <li class="show">全部评价(<span class="all_app_num">0</span>)</li>
+                                <li>好评(<span class="good_app_num">0</span>)</li>
+                                <li>中评(<span class="cen_app_num">0</span>)</li>
+                                <li>差评(<span class="bad_app_num">0</span>)</li>
+                                <li>有图(<span class="img_app_num">0</span>)</li>
                             </ul>
                             <div class="su_con_app_content">
                                 <ul class="app_content_all show">
@@ -429,12 +433,10 @@
                                         </li>
                                         <li>
 
-                                            第<span>1</span>/<span>1</span>页 共<span>2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
-                                            <a class="page_cur">2</a>
-                                            <a class="page_cur">3</a>
                                         </li>
                                     </div>
                                 </ul>
@@ -500,12 +502,10 @@
                                         </li>
                                         <li>
 
-                                            第<span>1</span>/<span>1</span>页 共<span>2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
-                                            <a class="page_cur">2</a>
-                                            <a class="page_cur">3</a>
                                         </li>
                                     </div>
                                 </ul>
@@ -533,12 +533,10 @@
                                         </li>
                                         <li>
 
-                                            第<span>1</span>/<span>1</span>页 共<span>2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
-                                            <a class="page_cur">2</a>
-                                            <a class="page_cur">3</a>
                                         </li>
                                     </div>
                                 </ul>
@@ -579,12 +577,10 @@
                                         </li>
                                         <li>
 
-                                            第<span>1</span>/<span>1</span>页 共<span>2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
-                                            <a class="page_cur">2</a>
-                                            <a class="page_cur">3</a>
                                         </li>
                                     </div>
                                 </ul>
@@ -638,12 +634,10 @@
                                         </li>
                                         <li>
 
-                                            第<span>1</span>/<span>1</span>页 共<span>2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
-                                            <a class="page_cur">2</a>
-                                            <a class="page_cur">3</a>
                                         </li>
                                     </div>
                                 </ul>
@@ -662,45 +656,51 @@
                                 <tbody>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                     <tr>
                                         <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
-                                        <td>3</td>
-                                        <td>包装规格:44片;</td>
-                                        <td>2017/12/12</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="./../images/0 (1).jpg" alt="">Y***8</td>
+                                        <td class="pro_sale_num">3</td>
+                                        <td class="pro_sale_spec">包装规格:44片;</td>
+                                        <td class="pro_sale_time">2017/12/12</td>
                                     </tr>
                                 </tbody>
                             </table>

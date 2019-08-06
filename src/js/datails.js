@@ -3,7 +3,7 @@ $(() => {
     $("#footer").load("./footer.html");
     $("#aside").load("./aside.html");
     $("img").lazyload({
-        placeholder: "http://hbimg.b0.upaiyun.com/c2d9a837d3d9536d7cdb535e3680540e2b4401493b6e5-25A3UX_fw658",
+        placeholder: "./../images/loding.gif",
         effect: "fadeIn",
         threshold: 200
     })
@@ -127,20 +127,23 @@ $(() => {
 })
 //点击增加购买数量
 $(() => {
-    let buyNum = $(".det_ch_cart").text();
+    let buyNum = $(".det_ch_cart").val();
+    $(".det_ch_cart").on("change", function () {
+        buyNum = $(".det_ch_cart").val();
+    })
     $(".det_ch_add").on("click", function () {
         buyNum++;
         if (buyNum >= $(".det_ch_stock").text()) {
             buyNum = $(".det_ch_stock").text();
         }
-        $(".det_ch_cart").text(buyNum);
+        $(".det_ch_cart").val(buyNum);
     })
     $(".det_ch_reduce").on("click", function () {
         buyNum--;
         if (buyNum <= 1) {
             buyNum = 1;
         }
-        $(".det_ch_cart").text(buyNum);
+        $(".det_ch_cart").val(buyNum);
     })
 })
 //点击购买
@@ -174,7 +177,6 @@ $(() => {
 //相关商品 鼠标悬停 显示分享
 $(() => {
     $(".det_re_product").find("figure").on("mouseenter", function () {
-        console.log($(".relate_share"))
         $(this).append($(".relate_share"));
         $(".relate_share").show();
     }).on("mouseleave", function () {
@@ -186,12 +188,10 @@ $(() => {
 //产品介绍 tab栏切换
 $(() => {
     $(".pro_su_title").find("li").on("click", function () {
-        console.log($(".pro_su_content"))
         $(this).addClass("current").siblings().removeClass("current");
         $(".pro_su_content>div").eq($(this).index()).addClass("current").siblings().removeClass("current");
     })
     $(".su_con_app_title").find("li").on("click", function () {
-        console.log($(".su_con_app_content"))
         $(this).addClass("show").siblings().removeClass("show");
         $(".su_con_app_content>ul").eq($(this).index()).addClass("show").siblings().removeClass("show");
     })
@@ -213,3 +213,34 @@ $(() => {
         }
     })
 })
+
+//商品评价
+$(() => {
+    $(".all_app_num").text($(".app_content_all>li").length);
+    $(".good_app_num").text($(".app_content_good>li").length);
+    $(".cen_app_num").text($(".app_content_center>li").length);
+    $(".bad_app_num").text($(".app_content_bad>li").length);
+    $(".img_app_num").text($(".app_content_img>li").length);
+    $(".su_app_commentary").text(($(".app_content_good>li").length + $(".app_content_img>li").length) / $(".app_content_all>li").length * 100 + '%');
+    $(".good_appraise").text($(".su_app_commentary").text());
+    $(".good_app_meter").attr("value", ($(".app_content_good>li").length + $(".app_content_img>li").length) / $(".app_content_all>li").length * 100);
+    $(".center_appraise").text(($(".cen_app_num").text() / $(".all_app_num").text()) * 100 + '%');
+    $(".bad_appraise").text(($(".bad_app_num").text() / $(".all_app_num").text()) * 100 + '%');
+    $(".cen_app_meter").attr("value", $(".cen_app_num").text() / $(".all_app_num").text() * 100);
+    $(".bad_app_meter").attr("value", ($(".bad_app_num").text() / $(".all_app_num").text() * 100).toFixed(1));
+    $(".appraise_num").text($(".all_app_num").text());
+    $(".record_num").text($(".all_app_num").text());
+    let result = 0;
+    $(".pro_sale_num").each((index, el) => {
+        result += $(el).text()-0;
+    })
+    $(".sale_num").text(result);
+})
+
+//商品评价翻页
+$(()=>{
+    $(".page_record_num").each((index,el)=>{
+        $(el).text($(el).parent().parent().parent().children("li").length)
+    })
+})
+

@@ -105,6 +105,7 @@ body {
     text-justify: 10px;
     letter-spacing: 10px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .login footer {

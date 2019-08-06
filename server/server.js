@@ -1,51 +1,42 @@
-const express=require("express");
-const qs=require("querystring");
+﻿//1.引入 express 框架 body-parser cookie-session cookie-parser
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieSession from 'cookie-session';
+import cookieParser from 'cookie-parser';
 
-let server=express();
-var useList=[];
-//use 支持get 请求 又支持post 请求
+import {router} from './routes/apiRouter';
 
-//设置login
-server.post("/login",(request,response,next)=>{
-    var strParams="";
-    request.on("data",(data)=>{
-        strParams+=data.toString();
-    })
-    request.on("end",()=>{
-        var useObj=qs.parse(strParams);
-        var result=useList.some((el)=>{
-            return (el.uname==useObj.uname&&el.upwd==useObj.upwd);
-        })
-        var resultObj={"msg":"登录失败",status:-1};
-        if(result){
-            resultObj["msg"]="登录成功";
-            resultObj["status"]=1;
-            resultObj["data"]=useObj;
-        }
-        response.json(resultObj)
-    })
-    // response.end("123")
+//2.创建服务
+const app = express();
+
+//4.使用中间件 
+app.use(cookieParser("userker.cn"));
+
+//5.使用cookieSession 加密
+app.use(cookieSession({
+    name: "userker.cn",
+    keys: ["aaa", "bbb", "ccc"],
+    maxAge: 1000 * 20 * 60
+}))
+
+//6.使用bodyParser 转码
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json());
+
+
+//7.配置跨域
+app.all("*", (req, res, next) => {
+    res.header("Content-Type", "application/json;charset=utf-8");
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
 })
-server.post("/reg",(request,response,next)=>{
-    var strParams="";
-    request.on("data",(data)=>{
-        strParams+=data.toString();
-    })
-    request.on("end",()=>{
-        var useObj=qs.parse(strParams);
-        var result=useList.some((el)=>{
-            return el.uname==useObj.uname;
-        })
-        var resultObj={"msg":"注册失败",status:-1};
-        if(!result){
-            resultObj["msg"]="注册成功";
-            resultObj["status"]=1;
-            useList.push(useObj);
-        }
-        response.json(resultObj);
-    })
-    // response.end("reg")
-})
-server.listen(8080,function(){
-    console.log("服务器启动完毕!")
+
+//8.引入保安大爷
+app.use("/api", router);
+
+//3.监听服务
+app.listen(8080, () => {
+    console.log("服务启动完成");
 })

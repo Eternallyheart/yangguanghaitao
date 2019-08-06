@@ -7,19 +7,19 @@ body {
     background-color: #fbfbfb;
 }
 
-.rigister {
+.register {
     width: 100%;
     height: 100%;
 }
 
-.rigister_header {
+.register_header {
     width: 100%;
     border-bottom: 2px solid #fe5322;
     padding-bottom: 20px;
     background-color: #fff;
 }
 
-.rigister header {
+.register header {
     width: 1100px;
     margin: 0 auto;
     padding: 30px 0;
@@ -28,18 +28,18 @@ body {
 
 }
 
-.rigister header h1 {
+.register header h1 {
     text-indent: -9999px;
 }
 
-.rigister header h1 a {
+.register header h1 a {
     display: block;
     width: 200px;
     height: 60px;
-    background: url(./../images/logo_rigister.gif) no-repeat center;
+    background: url(./../images/logo_register.gif) no-repeat center;
 }
 
-.rigister .rig_welcome {
+.register .rig_welcome {
     width: 200px;
     height: 40px;
     text-indent: 20px;
@@ -50,71 +50,78 @@ body {
     color: #666;
 }
 
-.rigister .rig_login {
+.register .rig_login {
     position: absolute;
     bottom: 0;
     right: 0;
     color: #666;
 }
 
-.rigister .rig_login a {
+.register .rig_login a {
     color: red;
 }
 
-.rigister main {
+.register main {
     width: 880px;
     height: 600px;
     margin: 40px auto;
 }
 
-.rigister form {
+.register form {
     width: 100%;
     height: 100%;
     background-color: #fff;
     padding: 40px;
 }
 
-.rigister form p {
+.register form p {
     height: 50px;
     overflow: hidden;
     padding: 5px 0;
 }
 
-.rigister form p:last-of-type {
+.register form p:last-of-type {
     height: 60px;
 }
 
-.rigister form label {
+.register form label {
     display: inline-block;
     padding-right: 20px;
     color: #999;
+    line-height: 40px;
 }
 
-.rigister .la_left {
+.register form label.error {
+    margin-left: 10px;
+    color: red;
+}
+
+.register .la_left {
     width: 180px;
     text-align: right;
 }
 
-.rigister form input {
+.register form input {
     width: 300px;
     border: 1px solid #999;
     height: 40px;
     text-indent: 10px;
 }
 
-.rigister #usec {
+.register #usex {
     width: 15px;
 }
 
-.rigister #utest {
+.register #utest {
     width: 180px;
+    margin-left: 4px;
 }
 
-.rigister .usec {
+.register .usex {
     color: #666;
 }
 
-.rigister .la_right {
+.register .la_right {
     display: block;
     width: 300px;
     height: 40px;
@@ -122,36 +129,42 @@ body {
     float: right;
 }
 
-.rigister .utest_txt {
+.register .utest_txt {
     width: 100px;
     height: 40px;
     background: #bdbdbd;
     float: left;
     margin-left: 10px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    user-select: none;
+    padding-right: 0;
 }
 
-.rigister .utest_btn {
+.register .utest_btn {
     color: red;
     padding: 6px;
     cursor: pointer;
+    user-select: none;
 }
 
-.rigister .utest {
+.register .utest {
     width: 220px;
 }
 
-.rigister #ucheckbox {
+.register #ucheckbox {
     width: 15px;
     margin-left: 200px;
     margin-right: 10px;
 }
 
-.rigister .ucheckbox a {
+.register .ucheckbox a {
     color: red;
     margin-left: 5px;
 }
 
-.rigister .submit {
+.register .submit {
     width: 320px;
     height: 40px;
     margin-top: 10px;
@@ -160,14 +173,34 @@ body {
     background-color: #fe5322;
     font-size: 20px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
-.rigister footer {
+.register_show {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.2);
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    display: none;
+}
+
+.register_show img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.register footer {
     text-align: center;
     line-height: 20px;
     color: #999;
 }
 
-.rigister footer p a {
+.register footer p a {
     color: #999;
 }

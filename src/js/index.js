@@ -3,7 +3,7 @@ $(() => {
     $("#footer").load("./html/footer_index.html");
     $("#aside").load("./html/aside_index.html");
     $("img").lazyload({
-        placeholder: "http://hbimg.b0.upaiyun.com/c2d9a837d3d9536d7cdb535e3680540e2b4401493b6e5-25A3UX_fw658",
+        placeholder: "./images/loding.gif",
         effect: "fadeIn",
         threshold: 200
     })

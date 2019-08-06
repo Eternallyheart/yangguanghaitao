@@ -57,6 +57,9 @@ body {
     color: red;
 }
 
+.sun_list .category_banner li{
+    position: relative;
+}
 .sun_list .category_banner li a {
     width: 200px;
     overflow: hidden;
@@ -65,12 +68,43 @@ body {
     padding-right: 20px;
     padding-left: 30px;
     font-size: 14px;
+    background: none;
 }
 
 .sun_list .category_banner li:first-of-type {
     height: 100px;
     padding-top: 10px;
     background: url(./../images/60_201706061342371184160.png) no-repeat 30px center;
+}
+
+ .category_banner  li span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 9px;
+    left: 5px;
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -5px -14px/115px 83px;
+}
+
+ .category_banner  li:nth-child(2) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -20px -14px/115px 83px;
+}
+
+ .category_banner  li:nth-child(3) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -33px -14px/115px 83px;
+}
+
+ .category_banner  li:nth-child(4) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -48px -14px/115px 83px;
+}
+
+ .category_banner  li:nth-child(5) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -62px -14px/115px 83px;
+}
+
+.category_banner  li:nth-child(6) span {
+    background: url(./../images/u=1923174766\,3235596539&fm=26&gp=0.jpg) no-repeat -78px -14px/115px 83px;
 }
 
 .sun_list .category_banner li:first-of-type a {
@@ -81,7 +115,7 @@ body {
     height: 45px;
 }
 
-.sun_list .category_banner li:first-of-type span {
+.sun_list .category_banner li:first-of-type .firts_price {
     padding-left: 90px;
     color: red;
     font-size: 12px;

@@ -10,32 +10,44 @@ body {
     height: 100%;
     position: fixed;
     top: 0px;
-    right: 0px;
-    width: 5px;
+    right: -195px;
+    width: 200px;
     z-index: 1000;
     background-color: #333;
     /* text-indent: -9999px; */
 }
 
+.sun_aside aside .coupon_show>li {
+    padding: 10px;
+    color: #999;
+    font-size: 14px;
+}
+
+.sun_aside aside .coupon_show>li>a {
+    color: #666;
+    font-size: 12px;
+}
+
 .sun_aside .toolbar {
     position: absolute;
     top: 50%;
-    right: 0px;
+    right: 195px;
     transform: translate(0, -50%);
 }
 
 .sun_aside .toolbar_person {
-    width: 35px;
+    width: 80px;
     height: 30px;
     background-color: #333;
     line-height: 30px;
-    text-align: center;
     position: relative;
+    right: -45px;
     z-index: 10;
 }
 
 .sun_aside .toolbar div a {
     color: #fff;
+    padding: 7px;
 }
 
 .sun_aside .toolbar div a i {
@@ -60,31 +72,41 @@ body {
     right: -35px;
     border-radius: 3px 0 0 3px;
     color: #fff;
+    background-color: #000;
     z-index: 1;
 }
 
+.sun_aside aside a.current {
+    background-color: red;
+}
 .sun_aside aside .current {
     background-color: red;
 }
-
 .sun_aside .toolbar .cart {
     top: 32px;
     right: -35px;
 }
-.sun_aside .toolbar .coupon{
+
+.sun_aside .toolbar .coupon {
     top: 64px;
     right: -35px;
 }
-.sun_aside .toolbar_scroll{
-    font-size: 20px;
-    color: #fff;
+
+.sun_aside .toolbar_scroll {
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    right: 145px;
     cursor: pointer;
     margin-bottom: 0;
 }
-.sun_aside .scroll{
+
+.sun_aside .toolbar_scroll a {
+    font-size: 20px;
+    padding: 2px 7px 3px;
+    color: #fff;
+}
+
+.sun_aside .scroll {
     width: 70px;
     height: 30px;
     line-height: 30px;
@@ -96,27 +118,31 @@ body {
     z-index: 1;
     background-color: #000;
 }
-.sun_aside .scroll a{
-     color: #fff;
+
+.sun_aside .scroll a {
+    color: #fff;
 }
-.sun_aside .toolbar_chat{
+
+.sun_aside .toolbar_chat {
     height: 40px;
     line-height: 40px;
     width: 230px;
     position: absolute;
     bottom: 0;
-    right: 105px;
+    right: 300px;
     border-radius: 5px;
     background-color: #0072ff;
     color: #fff;
     text-align: center;
     cursor: pointer;
 }
-.sun_aside .toolbar_chat i{
+
+.sun_aside .toolbar_chat i {
     margin-right: 20px;
     font-size: 20px;
 }
-.sun_aside .chatBox{
+
+.sun_aside .chatBox {
     width: 320px;
     height: 480px;
     display: none;

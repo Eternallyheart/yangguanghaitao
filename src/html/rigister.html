@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="./../css/base.css">
     <link rel="stylesheet" href="./../css/rigister.css">
     <script src="./../js/jquery-3.4.1.min.js"></script>
-    <script src="./../js/rigister.js"></script>
+    <script src="./../js/Validate/jquery.validate.js"></script>
+    <script src="./../js/Validate/additional-methods.js"></script>
+    <script src="./../js/Validate/localization/messages_zh.js"></script>
+    <script src="./../js/layer/layer.js"></script>
+    <script src="./../js/register.js"></script>
 </head>
 
 <body>
-    <div class="rigister">
-        <div class="rigister_header">
+    <div class="register">
+        <div class="register_header">
             <header>
                 <div class="rig_logo fl">
                     <h1><a href="./../index.html">阳光海淘注册</a></h1>
@@ -25,49 +29,53 @@
                 <div class="rig_login">我已注册,现在就去<a href="./login.html">登录</a></div>
             </header>
         </div>
-
         <main>
-            <form action="">
+            <form action="post">
                 <p>
-                    <label class="la_left" for="uname">邮箱</label><input type="text" name="uname" id="uname"
-                        placeholder="请输入邮箱"><label class="uname la_right"></label>
+                    <label class="la_left" for="uemail">邮箱</label>
+                    <input type="text" name="uemail" id="uemail" placeholder="请输入邮箱">
                 </p>
                 <p>
-                    <label class="la_left" for="upwd1">密码</label><input type="text" name="upwd1" id="upwd1"
-                        placeholder="请输入密码"><label class="upwd1 la_right"></label>
+                    <label class="la_left" for="upwd1">密码</label>
+                    <input type="text" name="upwd1" id="upwd1" placeholder="请输入密码">
                 </p>
                 <p>
-                    <label class="la_left" for="upwd2">确认密码</label><input type="text" name="upwd2" id="upwd2"
-                        placeholder="请确认密码"><label class="upwd2 la_right"></label>
+                    <label class="la_left" for="upwd2">确认密码</label>
+                    <input type="text" name="upwd2" id="upwd2" placeholder="请确认密码">
                 </p>
                 <p>
-                    <label class="la_left" for="urelname">真实姓名</label><input type="text" name="urelname" id="urelname"
-                        placeholder="请输入姓名"><label class="urelname la_right"></label>
+                    <label class="la_left" for="urelname">真实姓名</label>
+                    <input type="text" name="urelname" id="urelname" placeholder="请输入姓名">
                 </p>
                 <p>
-                    <label class="la_left" for="usec">性别</label>
-                    <input type="radio" name="usec" id="usec" checked><label class="usec">男士</label>
-                    <input type="radio" name="usec" id="usec"><label class="usec">女士</label>
+                    <label class="la_left" for="usex">性别</label>
+                    <input type="radio" name="usec" id="usex" value="男" checked><label class="usex">男士</label>
+                    <input type="radio" name="usec" id="usex" value="女"><label class="usex">女士</label>
                 </p>
                 <p>
-                    <label class="la_left" for="ubirthday">生日</label><input type="text" name="ubirthday" id="ubirthday"
-                        placeholder="请输入生日"><label class="ubirthday la_right"></label>
+                    <label class="la_left" for="ubirthday">生日</label>
+                    <input type="text" name="ubirthday" id="ubirthday" placeholder="请输入生日">
                 </p>
                 <p>
                     <label class="la_left fl" for="utest">图形验证码</label>
                     <input type="text" name="utest" id="utest" class="fl" placeholder="请输入验证码">
-                    <label class="utest_txt fl"></label><label class="utest_btn fl f12">看不清?换一张</label>
-                    <label class="utest la_right fl"></label>
+                    <label class="utest_txt fl"></label>
+                    <label class="utest_btn fl f12"><a href="javascript:;">看不清?换一张</a></label>
                 </p>
                 <p>
-                    <input type="checkbox" id="ucheckbox"><label class="ucheckbox f12">我已阅读并同意<a
-                            href="">会员注册协议</a></label>
+
+                    <input type="checkbox" name="ucheckbox" id="ucheckbox">
+                    <label class="ucheckbox f12">我已阅读并同意<a href="">会员注册协议</a></label>
+                    <label id="ucheckbox-error" class="error" for="ucheckbox"></label>
                 </p>
                 <p>
                     <button class="submit">立即注册</button>
                 </p>
             </form>
         </main>
+        <div class="register_show">
+            <img src="./../images/loding.gif" alt="">
+        </div>
         <footer>
             <p class="f12">
                 <a href="">关于海淘</a><i>|</i>
