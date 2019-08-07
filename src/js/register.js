@@ -34,7 +34,7 @@ $(() => {
                 dataType: "json",
                 data: {
                     uemail: $("form")[0].uemail.value,
-                    upwd: $("form")[0].upwd.value,
+                    upwd: $.md5($("form")[0].upwd.value),
                     urelname: $("form")[0].urelname.value,
                     ubirthday: $("form")[0].ubirthday.value,
                     usex: $("form")[0].usex.value,
@@ -44,10 +44,7 @@ $(() => {
                 }
             }).then(function (data) {
                 $(".register_show").hide();
-                if (data.status == -2) {
-                    layer.msg(data.msg);
-                    $("form")[0].uemail.focus();
-                } else if (data.status == 1) {
+                if (data.status == 1) {
                     // localStorage.setItem("userInfo", JSON.stringify(data.data));
                     // $.cookie("userInfo",JSON.stringify(data.data),{
                     //     expires:10
@@ -61,7 +58,7 @@ $(() => {
                         }, 1000)
                     })
                 } else {
-                    console.log(data);
+                    layer.msg(data.msg);
                 }
             })
             return false;
@@ -70,6 +67,17 @@ $(() => {
             uemail: {
                 required: true,
                 email: true,
+                remote: {
+                    url: "http://127.0.0.1:8080/api/checkEmail",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        uemail: function () {
+                            return $("[name='uemail']").val();
+                        }
+                    }
+                }
+
             },
             upwd: {
                 required: true,
@@ -102,6 +110,7 @@ $(() => {
             uemail: {
                 required: "邮箱必填",
                 email: "请输入正确的邮箱",
+                remote: "用户名已存在"
             },
             upwd: {
                 required: "请输入密码",

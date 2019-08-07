@@ -25,6 +25,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+//9.搭建一个静态资源服务器
+app.use(express.static("./public"));
 
 //7.配置跨域
 app.all("*", (req, res, next) => {
