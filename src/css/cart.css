@@ -188,9 +188,17 @@ body {
     cursor: pointer;
     user-select: none;
 }
-
+.sun_cart .sun_cart_add{
+    margin-left: 75px;
+}
 .sun_cart .sun_cart_number .cart_pro_number {
     width: 70px;
+    text-align: center;
+    height: 30px;
+    line-height: 26px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    position: absolute;
 }
 
 .sun_cart .sun_cart_delete a {

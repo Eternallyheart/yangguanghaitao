@@ -87,6 +87,7 @@ body {
     border: 1px solid #dbdbdd;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
 }
 
 .sun_details .details_allImg img {
@@ -213,6 +214,8 @@ body {
 .sun_details .det_ch_delivery .area_address ul {
     padding: 10px;
     display: none;
+    width: 430px;
+    min-height: 170px;
 }
 
 .sun_details .det_ch_delivery .area_address ul.show {
@@ -333,6 +336,7 @@ body {
     border-radius: 3px;
     margin-right: 15px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .sun_details .det_ch_buy {

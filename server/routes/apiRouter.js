@@ -9,7 +9,6 @@ let router = express.Router();
 router.post("/login", (req, res, next) => {
 	let sql = "SELECT `uemail`,`urelname`,`usex`,`ubirthday` FROM userinfo WHERE uemail=? AND upwd=?";
 	let params = [req.body.uemail, req.body.upwd];
-	console.log(params)
 	let resultObj = {
 		msg: '登录失败',
 		status: -1,
@@ -19,11 +18,14 @@ router.post("/login", (req, res, next) => {
 			resultObj.msg = '登录成功';
 			resultObj.status = 1;
 			resultObj.data = result;
-		} 
+		} else{
+			resultObj.msg = '用户名或密码错误';
+			resultObj.status = -2;
+		}
 		res.json(resultObj);
 	}, (err) => {
 		resultObj.err = err;
-		resultObj.status = -2;
+		resultObj.status = -3;
 		res.json(resultObj);
 	})
 })
@@ -47,9 +49,10 @@ router.post("/reg", (req, res, next) => {
 			let params = [req.body.uemail, req.body.upwd, req.body.usex, req.body.urelname, req.body.ubirthday];
 			db.query(sql, params).then((data) => {
 				if (data.affectedRows == 1) {
+					params.splice(1,1);
 					resultObj.msg = '注册成功';
 					resultObj.status = 1;
-					resultObj.data = data;
+					resultObj.data = params;
 					res.json(resultObj);
 				} else {
 					resultObj.data = data;

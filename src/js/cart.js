@@ -17,8 +17,8 @@ $(() => {
             $(".sun_cart_product").find("input").prop("checked", true);
             $(".cart_select_buy").addClass("cart_buy");
             $(".cart_product").each((index, el) => {
-                strNum += $(el).find(".cart_pro_number").text() - 0;
-                strPrice += $(el).find(".cart_product_price").text() * $(el).find(".cart_pro_number").text();
+                strNum += $(el).find(".cart_pro_number").val() - 0;
+                strPrice += $(el).find(".cart_product_price").text() * $(el).find(".cart_pro_number").val();
             })
             strPrice = strPrice.toFixed(2);
         } else {
@@ -52,16 +52,16 @@ $(() => {
             $("#checkboxPlat").prop("checked", false);
         }
         if ($(this).prop("checked")) {
-            strNum = $(this).parent().parent().find(".cart_pro_number").text() - 0;
-            strPrice = $(this).parent().parent().find(".cart_product_price").text() * $(this).parent().parent().find(".cart_pro_number").text();
+            strNum = $(this).parent().parent().find(".cart_pro_number").val() - 0;
+            strPrice = $(this).parent().parent().find(".cart_product_price").text() * $(this).parent().parent().find(".cart_pro_number").val();
         } else {
             strPrice = 0;
             strNum = 0;
         }
         $(this).parents(".cart_product").siblings().each((index, el) => {
             if ($(el).find("input").prop("checked")) {
-                strNum += $(el).find(".cart_pro_number").text() - 0;
-                strPrice += $(el).find(".cart_product_price").text() * $(el).find(".cart_pro_number").text();
+                strNum += $(el).find(".cart_pro_number").val() - 0;
+                strPrice += $(el).find(".cart_product_price").text() * $(el).find(".cart_pro_number").val();
             }
         })
         strPrice = strPrice.toFixed(2);
@@ -75,48 +75,43 @@ $(() => {
     let obj = {};
     let strNum = 0;
     let strPrice = 0;
-    $(".sun_cart_product").each((index, el) => {
-        obj[index] = $(el).find(".cart_pro_number").text();
+    $(".cart_product").each((index, el) => {
+        obj[index] = $(el).find(".cart_pro_number").val();
+        $(el).find(".cart_pro_number").on("input", function () {
+            obj[index] = $(el).find(".cart_pro_number").val() - 0;
+            autoPrice(el);
+        })
         $(el).on("click", ".sun_cart_add", function () {
             obj[index]++;
-            $(this).prev(".cart_pro_number").text(obj[index]);
-            if ($(this).parents(".cart_product").find("input").prop("checked")) {
-                strNum = obj[index];
-                strPrice = $(el).find(".cart_pro_number").text() * $(el).find(".cart_product_price").text();
-                $(this).parents(".cart_product").siblings().each((index, el) => {
-                    if ($(el).find("input").prop("checked")) {
-                        strNum += $(el).find(".cart_pro_number").text() - 0;
-                        strPrice += $(el).find(".cart_pro_number").text() * $(el).find(".cart_product_price").text();
-                    }
-
-                })
-                strPrice = strPrice.toFixed(2);
-                $(".cart_select_price").text("¥" + strPrice);
-                $(".cart_select_num").text(strNum);
-            }
+            $(this).prev(".cart_pro_number").val(obj[index]);
+            autoPrice(el);
         })
         $(el).on("click", ".sun_cart_reduce", function () {
             obj[index]--;
             if (obj[index] <= 1) {
                 obj[index] = 1;
             }
-            $(this).next(".cart_pro_number").text(obj[index]);
-            if ($(this).parents(".cart_product").find("input").prop("checked")) {
+            $(this).next(".cart_pro_number").val(obj[index]);
+            autoPrice(el);
+        })
+        function autoPrice(el) {
+             console.log(obj)
+            if ($(el).find("input[type=checkbox]").prop("checked")) {
                 strNum = obj[index];
-                strPrice = $(el).find(".cart_pro_number").text() * $(el).find(".cart_product_price").text();
-                $(this).parents(".cart_product").siblings().each((index, el) => {
-                    if ($(el).find("input").prop("checked")) {
-                        strNum += $(el).find(".cart_pro_number").text() - 0;
-                        strPrice += $(el).find(".cart_pro_number").text() * $(el).find(".cart_product_price").text();
+                strPrice = $(el).find(".cart_pro_number").val() * $(el).find(".cart_product_price").text();
+                $(el).siblings().each((index, el) => {
+                    if ($(el).find("input[type=checkbox]").prop("checked")) {
+                        strNum += $(el).find(".cart_pro_number").val() - 0;
+                        strPrice += $(el).find(".cart_pro_number").val() * $(el).find(".cart_product_price").text();
                     }
-
                 })
                 strPrice = strPrice.toFixed(2);
                 $(".cart_select_price").text("¥" + strPrice);
                 $(".cart_select_num").text(strNum);
             }
-        })
+        }
     })
+
 })
 
 $(() => {
@@ -162,8 +157,8 @@ $(() => {
             let strPrice = 0;
             $(".cart_product").each((index, el) => {
                 if ($(el).find("input").prop("checked")) {
-                    num += $(el).find(".cart_pro_number").text() - 0;
-                    strPrice += $(el).find(".cart_pro_number").text() * $(el).find(".cart_product_price").text();
+                    num += $(el).find(".cart_pro_number").val() - 0;
+                    strPrice += $(el).find(".cart_pro_number").text() * $(el).find(".cart_product_price").val();
                 }
             })
             strPrice = strPrice.toFixed(2);

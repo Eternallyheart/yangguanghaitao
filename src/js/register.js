@@ -18,36 +18,51 @@ $(() => {
         return str;
     };
 
-    $.validator.addMethod("checkupwd", function (value, element, param) {
+    $.validator.addMethod("checkPwd", function (value, element, param) {
         return /^[a-z]+\w+$/ig.test(value);
     }, "字母开头");
 
-    $.validator.addMethod("checkutest", function (value, element, param) {
-        return value == $(".utest_txt").text();
+    $.validator.addMethod("checkTest", function (value, element, param) {
+        return value.toLowerCase() == $(".utest_txt").text();
     }, "请输入正确的验证码");
-
 
     $("form").validate({
         submitHandler() {
-            console.log($("form").serialize());
             $.ajax({
                 url: "http://127.0.0.1:8080/api/reg",
                 type: "post",
                 dataType: "json",
-                data: $("form").serialize(),
+                data: {
+                    uemail: $("form")[0].uemail.value,
+                    upwd: $("form")[0].upwd.value,
+                    urelname: $("form")[0].urelname.value,
+                    ubirthday: $("form")[0].ubirthday.value,
+                    usex: $("form")[0].usex.value,
+                },
                 beforeSend: function () {
                     $(".register_show").show();
                 }
             }).then(function (data) {
                 $(".register_show").hide();
-                if (data.status == 1) {
-                    layer.confirm("登录成功,是否提交到主页", {
-                        btn: ["好的", "丨"]
+                if (data.status == -2) {
+                    layer.msg(data.msg);
+                    $("form")[0].uemail.focus();
+                } else if (data.status == 1) {
+                    // localStorage.setItem("userInfo", JSON.stringify(data.data));
+                    // $.cookie("userInfo",JSON.stringify(data.data),{
+                    //     expires:10
+                    // })
+                    layer.confirm("注册成功,是否登录", {
+                        btn: ["好的", "稍等"]
                     }, function (index) {
                         layer.close(index);
-                        window.location = "./../index.html";
+                        setTimeout(() => {
+                            window.location = "./../html/login.html";
+                        }, 1000)
                     })
-                } 
+                } else {
+                    console.log(data);
+                }
             })
             return false;
         },
@@ -56,14 +71,14 @@ $(() => {
                 required: true,
                 email: true,
             },
-            upwd1: {
+            upwd: {
                 required: true,
                 rangelength: [8, 20],
-                checkupwd:true
+                checkPwd: true
             },
             upwd2: {
                 required: true,
-                equalTo: "#upwd1",
+                equalTo: "#upwd",
             },
             urelname: {
                 required: true
@@ -77,7 +92,7 @@ $(() => {
             },
             utest: {
                 required: true,
-                checkutest: true
+                checkTest: true
             },
             ucheckbox: {
                 required: true,
@@ -88,7 +103,7 @@ $(() => {
                 required: "邮箱必填",
                 email: "请输入正确的邮箱",
             },
-            upwd1: {
+            upwd: {
                 required: "请输入密码",
                 rangelength: "密码{0}-{1}位"
             },

@@ -13,14 +13,23 @@
 </head>
 
 <body>
+    <!-- 引入头部页面 开始 -->
     <header id="header"></header>
+    <!-- 引入头部页面 结束 -->
+
+    <!-- 主体内容 开始 -->
     <div class="sun_list">
         <main class="container">
+            <!-- 引导标题 开始 -->
             <header class="f12">
-                <a href="">首页</a>&gt;&gt;
-                <a href="">母婴专区</a>
+                <a href="./../index.html" target="_new">首页</a>&gt;&gt;
+                <a href="./list.html" target="_self">母婴专区</a>
             </header>
+            <!-- 引导标题 结束 -->
+
+            <!-- 左侧边栏 开始 -->
             <section class="fl category_aside">
+                <!-- 左侧引导列表 开始 -->
                 <aside class="category_list">
                     <ul>
                         <h2><a href="">母婴专区</a></h2>
@@ -88,6 +97,9 @@
                         </li>
                     </ul>
                 </aside>
+                <!-- 左侧引导列表 结束 -->
+
+                <!-- 侧边栏排行榜 开始 -->
                 <aside class="category_list category_banner">
                     <h2>销量排行榜</h2>
                     <ul>
@@ -103,16 +115,57 @@
                         <li><span></span><a href="">德国 奶粉 爱他美 Apta 喜宝有机益生菌3段 600g</a></li>
                     </ul>
                 </aside>
+                <!-- 侧边栏排行榜 结束 -->
+
+                <!-- 侧边栏浏览历史 开始 -->
                 <aside class="category_list category_history f12">
                     <h2>浏览过的商品</h2>
-                    <ul>
+                    <ul class="browse_ware">
+                        <figure>
+                            <a href=""><img src="./../images/220_201708110900589490600.jpg" alt=""></a>
+                            <figcaption>
+                                <p>
+                                    <a href="">日本大王(GOO.N) 维E系列 拉拉裤 学步裤训练裤 女 XL38片(12-20kg) 包邮包税</a>
+                                </p>
+                                <li>
+                                    <b>¥99.00</b><span>¥119.00</span>
+                                </li>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <a href=""><img src="./../images/220_201708110900589490600.jpg" alt=""></a>
+                            <figcaption>
+                                <p>
+                                    <a href="">日本大王(GOO.N) 维E系列 拉拉裤 学步裤训练裤 女 XL38片(12-20kg) 包邮包税</a>
+                                </p>
+                                <li>
+                                    <b>¥99.00</b><span>¥119.00</span>
+                                </li>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <a href=""><img src="./../images/220_201708110900589490600.jpg" alt=""></a>
+                            <figcaption>
+                                <p>
+                                    <a href="">日本大王(GOO.N) 维E系列 拉拉裤 学步裤训练裤 女 XL38片(12-20kg) 包邮包税</a>
+                                </p>
+                                <li>
+                                    <b>¥99.00</b><span>¥119.00</span>
+                                </li>
+                            </figcaption>
+                        </figure>
                     </ul>
                     <p>
-                        <a href="">清除我的浏览记录</a>
+                        <a href="javascript:;" class="delete_history">清除我的浏览记录</a>
                     </p>
                 </aside>
+                <!-- 侧边栏浏览历史 结束 -->
             </section>
+            <!-- 左侧边栏 结束 -->
+
+            <!-- 右侧主体内容 开始 -->
             <section class="fr category_content">
+                <!-- 子分类导航 开始 -->
                 <nav class="category_choice">
                     <h2>按子分类选择</h2>
                     <li>
@@ -123,6 +176,9 @@
                         <a href="">阶段奶粉</a>
                     </li>
                 </nav>
+                <!-- 子分类导航 结束 -->
+
+                <!-- 品牌分类导航 开始 -->
                 <nav class="category_choice category_select">
                     <h2>按品牌/属性选择</h2>
                     <li>
@@ -149,16 +205,21 @@
                         <a href="">Abtei爱普泰</a>
                     </li>
                 </nav>
+                <!-- 品牌分类导航 结束 -->
+
+                <!-- 分类查询 开始 -->
                 <nav class="category_search f12">
                     <form action="">
                         <p>
-                            <label for="cat_sea_keyword">关键字:</label><input type="text" id="cat_sea_keyword">
-                            <label for="">价格范围:</label><input type="text" class="cat_sea_price">-<input type="text"
-                                class="cat_sea_price cat_sea_pricemax">
+                            <label for="cat_sea_keyword">关键字:</label>
+                            <input type="text" id="cat_sea_keyword">
+                            <label for="">价格范围:</label>
+                            <input type="text" class="cat_sea_price cat_sea_priceMin ">-<input type="text"
+                                class="cat_sea_price cat_sea_priceMax">
                             <label for="">筛选:</label>
                         </p>
                         <p>
-                            <div class="category_recom fl">
+                            <div class="category_recommend fl">
                                 <input type="checkbox" value="猜你喜欢">猜你喜欢
                                 <input type="checkbox" value="美食推荐">美食推荐
                                 <input type="checkbox" value="数码推荐">数码推荐
@@ -178,6 +239,9 @@
                         <span>总共有89件商品,20件商品为一页,供5页第一页</span>
                     </li>
                 </nav>
+                <!-- 分类查询 结束 -->
+
+                <!-- 商品列表 开始 -->
                 <main class="category_substance f12">
                     <figure>
                         <a href=""><img src="./../images/220_201708110854189465000.jpg" alt=""></a>
@@ -400,6 +464,9 @@
                         </figcaption>
                     </figure>
                 </main>
+                <!-- 商品列表 结束 -->
+
+                <!-- 商品列表分页 开始 -->
                 <footer class="category_skip f12">
                     <ul>
                         <span><a href="">1</a></span>
@@ -414,11 +481,20 @@
                         <span><a href="">确定</a></span>
                     </ul>
                 </footer>
+                 <!-- 商品列表分页 结束 -->
             </section>
+            <!-- 右侧主体内容 结束 -->
         </main>
     </div>
+    <!-- 主体内容 结束 -->
+
+    <!-- 引入底部页面 开始 -->
     <footer id="footer"></footer>
+    <!-- 引入底部页面 结束 -->
+
+    <!-- 引入侧边栏页面 开始 -->
     <aside id="aside"></aside>
+    <!-- 引入侧边栏页面 结束 -->
 </body>
 
 </html>

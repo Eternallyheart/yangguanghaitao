@@ -85,43 +85,64 @@ $(() => {
 })
 //点击切换地址
 $(() => {
+    console.log(dsy.Items[0])
+    for (let i = 0; i < dsy.Items[0].length; i++) {
+        $(".select_province").append(`<a href='javascript:;'>${dsy.Items[0][i]}</a>`);
+    }
     $(".select_province a").on("click", function () {
+        let str = "0";
+        $(".select_city a").remove();
+        $(".select_county a").remove();
         let strProvince = $(this).text();
-        $(".province").html(strProvince);
-        $(".select_address").text(strProvince);
-        $(this).parent().hide();
-        $(this).parent().next("ul").show().siblings("ul").hide();
-        $(".select_city a").on("click", function () {
-            let strCity = $(this).text();
-            $(".city").html(strCity);
-            $(".select_address").text(strProvince + " " + strCity);
-            $(this).parent().hide();
-            $(this).parent().next("ul").show().siblings("ul").hide();
+        let tmpStr = str + "_" + $(this).index();
 
-            $(".select_county a").on("click", function () {
-                let strCounty = $(this).text();
-                $(".county").html(strCounty);
-                $(".select_address").text(strProvince + " " + strCity + " " + strCounty);
-                $(this).parent().hide();
-                $(this).parent().next("ul").show().siblings("ul").hide();
+        if (dsy.Items[tmpStr]) {
+            for (let i = 0; i < dsy.Items[tmpStr].length; i++) {
+                $(".select_city").append(`<a href='javascript:;'>${dsy.Items[tmpStr][i]}</a>`);
+            }
+            $(".province").html(strProvince);
+            $(".select_address").text(strProvince);
+            $(this).parent().removeClass("show");
+            $(this).parent().next("ul").addClass("show").siblings("ul").removeClass("show");
 
-                $(".select_road a").on("click", function () {
-                    let strRoad = $(this).text();
-                    $(".road").html(strRoad);
-                    $(".select_address").text(strProvince + " " + strCity + " " + strCounty + " " + strRoad);
-                    $(this).parent().hide();
+            $(".select_city a").on("click", function () {
+                let newStr = tmpStr;
+                newStr += "_" + $(this).index();
+                let strCity = $(this).text();
+                $(".select_county a").remove();
+                if (dsy.Items[newStr]) {
+                    for (let i = 0; i < dsy.Items[newStr].length; i++) {
+                        $(".select_county").append(`<a href='javascript:;'>${dsy.Items[newStr][i]}</a>`);
+                    }
+                    $(".city").html(strCity);
+                    $(".select_address").text(strProvince + " " + strCity);
+                    $(this).parent().removeClass("show");
+                    $(this).parent().next("ul").addClass("show").siblings("ul").removeClass("show");
 
-                    $(".area button").on("mouseenter", function () {
-                        $(".select_province").show();
-                        $(".area_address").find("span").eq(0).addClass("current");
+                    $(".select_county a").on("click", function () {
+                        let strCounty = $(this).text();
+                        $(".county").html(strCounty);
+                        $(".select_address").text(strProvince + " " + strCity + " " + strCounty);
+                        $(this).parent().removeClass("show");
+                        $(this).parent().next("ul").addClass("show").siblings("ul").removeClass("show");
                     })
-
-                    $(".area_address").find("span").on("click", function () {
-                        $(this).addClass("current").siblings().removeClass("current");
-                        $(".area_address>ul").eq($(this).index()).show().siblings("ul").hide();
-                    })
-                })
+                }else{
+                    $(".select_address").text(strProvince + " " + strCity);
+                    $(this).parent().removeClass("show");
+                }
             })
+        } else {
+            $(".select_address").text(strProvince);
+            $(this).parent().removeClass("show");
+        }
+        $(".area button").on("mouseenter", function () {
+            $(".select_province").addClass("show").siblings().removeClass("show");
+            $(".area_address").find("span").eq(0).addClass("current");
+        })
+
+        $(".area_address").find("span").on("click", function () {
+            $(this).addClass("current").siblings().removeClass("current");
+            $(".area_address>ul").eq($(this).index()).addClass("show").siblings("ul").removeClass("show");
         })
     })
 })
@@ -232,15 +253,14 @@ $(() => {
     $(".record_num").text($(".all_app_num").text());
     let result = 0;
     $(".pro_sale_num").each((index, el) => {
-        result += $(el).text()-0;
+        result += $(el).text() - 0;
     })
     $(".sale_num").text(result);
 })
 
 //商品评价翻页
-$(()=>{
-    $(".page_record_num").each((index,el)=>{
+$(() => {
+    $(".page_record_num").each((index, el) => {
         $(el).text($(el).parent().parent().parent().children("li").length)
     })
 })
-
