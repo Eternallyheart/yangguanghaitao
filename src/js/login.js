@@ -16,6 +16,7 @@ $(() => {
             }).then((data) => {
                 $(".login_show").hide();
                 if (data.status == 1) {
+                    console.log(data.data)
                     // localStorage.setItem("userInfo",JSON.stringify(data.data));
                     $.cookie("userInfo", JSON.stringify(data.data), {
                         expires: 10

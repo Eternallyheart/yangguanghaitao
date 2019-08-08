@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="./../css/base.css">
     <link rel="stylesheet" href="./../css/details.css">
     <link rel="stylesheet" href="./../iconfont/iconfont.css">
-    <script src="./../js/jquery-3.4.1.min.js"></script>
-    <script src="./../js/datails.js"></script>
+    <script src="./../js/jquery.js"></script>
+    <script src="./../js/jquery.cookie.js"></script>
     <script src="./../js/amazeui.lazyload.js"></script>
     <script src="./../js/area.js"></script>
+    <script src="./../js/layer/layer.js"></script>
+    <script src="./../js/datails.js"></script>
 </head>
 
 <body>
@@ -21,27 +23,20 @@
         <header class="sun_det_header f12">
             <p>
                 <a href="">数码家电</a>&gt;&gt;<a href="">生活电器</a>&gt;&gt;
-                <a href="">咖啡机</a>&gt;<span>Delonghi 德龙EN266 全自动胶囊咖啡机</span>
+                <a href="">咖啡机</a>&gt;<span class="header_name"></span>
             </p>
         </header>
         <main class="sun_details_product">
             <section class="details_product">
                 <article class="details_img fl">
                     <div class="details_middle">
-                        <img src="./../images/201706021605394465410.png" alt="">
                         <div class="details_middleArea"></div>
                     </div>
                     <div class="details_bigArea">
                         <div class="details_bigImg">
-                            <img src="./../images/201706021605394465410.png" alt="">
                         </div>
                     </div>
                     <div class="details_allImg">
-                        <li><img src="./../images/201706021605394465410.png" alt=""></li>
-                        <li><img src="./../images/201706131600476119750.jpg" alt=""></li>
-                        <li><img src="./../images/201706021605394465410.png" alt=""></li>
-                        <li><img src="./../images/201706131600476119750.jpg" alt=""></li>
-                        <li><img src="./../images/201706021605394465410.png" alt=""></li>
                     </div>
                     <div class="details_share f12">
                         <span>分享 :</span>
@@ -52,11 +47,11 @@
                     </div>
                 </article>
                 <article class="details_choice fl">
-                    <h2>Delonghi德龙EN266 全自动胶囊咖啡机</h2>
+                    <h2></h2>
                     <main>
                         <ul class="det_ch_price f12">
-                            <li>市场价 : <span class="det_ch_oldPrice">¥1797.60</span></li>
-                            <li>售 价 : <span class="det_ch_newPrice">¥ 1498.00</span><a href="">请登录</a>,确认是否享受优惠</li>
+                            <li>市场价 : <span class="det_ch_oldPrice"></span></li>
+                            <li>售 价 : <span class="det_ch_newPrice"></span><a href="">请登录</a>,确认是否享受优惠</li>
                         </ul>
                         <ul class="det_ch_delivery f12">
                             <div class="choice_area">
@@ -90,7 +85,7 @@
                                 <textarea class="det_ch_cart">1</textarea>
                                 <span class="det_ch_num det_ch_add"><i class="iconfont icon-shangla"></i></span>
                                 <span class="det_ch_num det_ch_reduce "><i class="iconfont icon-weibiaoti1"></i></span>
-                                <span class="det_ch_stock fr">999</span>
+                                <span class="det_ch_stock fr"></span>
                                 <span class="det_stock fr">库存 : </span>
                             </div>
                             <li class="det_ch_btn">
@@ -122,14 +117,14 @@
                     </div>
                     <h3>热销推荐</h3>
                     <figure>
-                        <a href=""><img src="./../images/160_201706061132150090410.jpg" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706061132150090410.jpg" alt=""></a>
                         <figcaption>
                             <a href="">德国 奶粉 喜宝 Hipp 喜宝有机益生菌2+段 600g</a>
                             <p>¥114.00</p>
                         </figcaption>
                     </figure>
                     <figure>
-                        <a href=""><img src="./../images/160_201706061328103996660.jpg" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706061328103996660.jpg" alt=""></a>
                         <figcaption>
                             <a href="">德国 奶粉 爱他美 Aptamil 2+段 60</a>
                             <p>¥114.00</p>
@@ -161,25 +156,25 @@
                             <p>品牌：德龙</p>
                             <div class="su_con_pro_img">
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                                 <div>
-                                    <img data-original="./../images/201706021605394465410.png" alt="">
+                                    <img>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +350,8 @@
                                         </li>
                                         <li>
 
-                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span
+                                                class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
@@ -424,7 +420,8 @@
                                         </li>
                                         <li>
 
-                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span
+                                                class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
@@ -455,7 +452,8 @@
                                         </li>
                                         <li>
 
-                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span
+                                                class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
@@ -499,7 +497,8 @@
                                         </li>
                                         <li>
 
-                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span
+                                                class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
@@ -556,7 +555,8 @@
                                         </li>
                                         <li>
 
-                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span class="page_record_num">2</span>记录
+                                            第<span class="page">1</span>/<span class="all_page">1</span>页 共<span
+                                                class="page_record_num">2</span>记录
                                         </li>
                                         <li>
                                             <a class="page_cur">1</a>
@@ -668,28 +668,28 @@
                 </div>
                 <section class="det_re_product f12">
                     <figure>
-                        <a href=""><img src="./../images/160_201706021619554465410.png" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706021619554465410.png" alt=""></a>
                         <figcaption>
                             <a href="">飞利浦 philipsHD7829/60 双口胶囊咖啡机</a>
                             <p>¥845.00</p>
                         </figcaption>
                     </figure>
                     <figure>
-                        <a href=""><img src="./../images/160_201706131600476119750.jpg" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706131600476119750.jpg" alt=""></a>
                         <figcaption>
                             <a href="">Krups KP 220 雀巢Kp2205 全自动胶囊咖啡机 红色</a>
                             <p>¥685.00</p>
                         </figcaption>
                     </figure>
                     <figure>
-                        <a href=""><img src="./../images/160_201706131600476119750.jpg" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706131600476119750.jpg" alt=""></a>
                         <figcaption>
                             <a href="">Krups KP 220 雀巢Kp2205 全自动胶囊咖啡机 红色</a>
                             <p>¥685.00</p>
                         </figcaption>
                     </figure>
                     <figure>
-                        <a href=""><img src="./../images/160_201706131600476119750.jpg" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706131600476119750.jpg" alt=""></a>
                         <figcaption>
                             <a href="">Krups KP 220 雀巢Kp2205 全自动胶囊咖啡机 红色</a>
                             <p>¥685.00</p>
@@ -697,7 +697,7 @@
                     </figure>
 
                     <figure>
-                        <a href=""><img src="./../images/160_201706131600476119750.jpg" alt=""></a>
+                        <a href=""><img data-original="./../images/160_201706131600476119750.jpg" alt=""></a>
                         <figcaption>
                             <a href="">Krups KP 220 雀巢Kp2205 全自动胶囊咖啡机 红色</a>
                             <p>¥685.00</p>

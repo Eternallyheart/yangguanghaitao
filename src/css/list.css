@@ -332,19 +332,21 @@ body {
 .sun_list .category_substance {
     display: flex;
     flex-wrap: wrap;
-    columns: 4;
-    column-gap: 20px;
     padding: 0 10px;
 }
 
-.sun_list .category_substance figure {
-    flex: 1;
+.sun_list .category_substance img {
+    width: 220px;
+    height: 220px;
+}
+
+.category_substance figure {
     width: 220px;
     margin-bottom: 30px;
     margin-right: 20px;
 }
 
-.sun_list .category_substance figure img {
+.category_substance figure img {
     border: 1px solid #dbdbdd;
 }
 
@@ -353,23 +355,33 @@ body {
     line-height: 20px;
 }
 
-.sun_list .category_substance figcaption a {
+.category_substance figcaption p {
+    padding: 0 10px;
+}
+
+.category_substance figcaption a {
     color: #535353;
 }
 
-.sun_list .category_substance figcaption a:hover {
+.category_substance figcaption a:hover {
     color: red;
 }
-
-.sun_list .category_substance figcaption li b {
+.category_substance figcaption li{
+    padding:0 10px;
+}
+.category_substance figcaption li b {
     color: red;
     font-size: 14px;
     margin-right: 10px;
 }
 
-.sun_list .category_substance figcaption li span {
+.category_substance figcaption li span {
     color: #999;
     text-decoration: line-through;
+}
+
+.category_substance .substance_none {
+    display: none;
 }
 
 /* 商品列表 结束 */

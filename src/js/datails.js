@@ -8,6 +8,34 @@ $(() => {
         threshold: 200
     })
 })
+
+//引入商品详情
+var globalData = null;
+
+$(() => {
+    function load() {
+        if (window.location.search.indexOf("?") == -1 || window.location.search.indexOf("=") == -1) {
+            return;
+        }
+        $.get("http://127.0.0.1:8080/api/goods" + window.location.search, (data) => {
+            globalData = data[0];
+            $(".header_name").text(data[0].pName);
+            $(".details_middle").append(`<img src="http://127.0.0.1:8080/${data[0].pImg[0]}" alt="">`);
+            $(".details_bigImg").append(`<img src="http://127.0.0.1:8080/${data[0].pImg[0]}" alt="">`);
+            data[0].pImg.forEach((el) => {
+                $(".details_allImg").append(`<li><img src="http://127.0.0.1:8080/${el}" alt=""></li>`)
+            });
+            $(".details_choice").find("h2").text(data[0].pName);
+            $(".det_ch_oldPrice").text("¥" + data[0].pOldPrice);
+            $(".det_ch_newPrice").text("¥" + data[0].pPrice);
+            $(".sale_num").text(data[0].pNum);
+            $(".det_ch_stock").text(data[0].pStock);
+            $(".su_con_pro_img").find("img").attr("data-original", `http://127.0.0.1:8080/${data[0].pImg[0]}`)
+        })
+    }
+    load();
+})
+
 //详情页放大镜js
 $(() => {
     $(".details_middleArea").height(($(".details_bigArea").height() / $(".details_bigImg").height()) * $(".details_middle").height());
@@ -55,7 +83,7 @@ $(() => {
 
 //点击小图片切换大图片
 $(() => {
-    $(".details_allImg").find("img").on("mouseenter", function () {
+    $(".details_allImg").on("mouseenter", "img", function () {
         $(".details_middle").find("img").attr("src", $(this).attr("src"));
         $(".details_bigImg").find("img").attr("src", $(this).attr("src"));
     })
@@ -85,10 +113,13 @@ $(() => {
 })
 //点击切换地址
 $(() => {
-    console.log(dsy.Items[0])
+    // $(".select_address").text(localStorage.getItem("pro_address"));
+    $(".select_address").text(JSON.parse($.cookie("pro_address")))
+    
     for (let i = 0; i < dsy.Items[0].length; i++) {
         $(".select_province").append(`<a href='javascript:;'>${dsy.Items[0][i]}</a>`);
     }
+    
     $(".select_province a").on("click", function () {
         let str = "0";
         $(".select_city a").remove();
@@ -110,6 +141,7 @@ $(() => {
                 newStr += "_" + $(this).index();
                 let strCity = $(this).text();
                 $(".select_county a").remove();
+
                 if (dsy.Items[newStr]) {
                     for (let i = 0; i < dsy.Items[newStr].length; i++) {
                         $(".select_county").append(`<a href='javascript:;'>${dsy.Items[newStr][i]}</a>`);
@@ -119,22 +151,37 @@ $(() => {
                     $(this).parent().removeClass("show");
                     $(this).parent().next("ul").addClass("show").siblings("ul").removeClass("show");
 
-                    $(".select_county a").on("click", function () {
+                    $(".select_county").on("click", "a", function () {
                         let strCounty = $(this).text();
                         $(".county").html(strCounty);
                         $(".select_address").text(strProvince + " " + strCity + " " + strCounty);
+
+                        // localStorage.setItem("pro_address", $(".select_address").text());
+                        $.cookie("pro_address", JSON.stringify($(".select_address").text()), {
+                            expires: 10
+                        })
                         $(this).parent().removeClass("show");
                         $(this).parent().next("ul").addClass("show").siblings("ul").removeClass("show");
                     })
-                }else{
+                } else {
                     $(".select_address").text(strProvince + " " + strCity);
                     $(this).parent().removeClass("show");
+                    $.cookie("pro_address", JSON.stringify($(".select_address").text()), {
+                        expires: 10
+                    })
+                    // localStorage.setItem("pro_address", $(".select_address").text());
                 }
             })
         } else {
             $(".select_address").text(strProvince);
             $(this).parent().removeClass("show");
+
+            // localStorage.setItem("pro_address", strProvince);
+            $.cookie("pro_address", JSON.stringify($(".select_address").text()), {
+                expires: 10
+            })
         }
+
         $(".area button").on("mouseenter", function () {
             $(".select_province").addClass("show").siblings().removeClass("show");
             $(".area_address").find("span").eq(0).addClass("current");
@@ -171,7 +218,40 @@ $(() => {
 
 
 //点击加入购物车
-
+$(() => {
+    $(".det_ch_join").on("click", function () {
+        let saveObj = {
+            uId: JSON.parse($.cookie("userInfo"))[0].uid,
+            pId: globalData.pId,
+            pName: globalData.pName,
+            pPrice: globalData.pPrice,
+            pOldPrice: globalData.pOldPrice,
+            pNum: $(".det_ch_cart").val(),
+            pImg: globalData.pImg[0],
+            pStock: globalData.pStock,
+            pTime: Date.now(),
+            pPerson: globalData.pPerson,
+            pTotal: globalData.pPrice * $(".det_ch_cart").val(),
+            pAddress: $(".select_address").text(),
+        };
+        $.ajax({
+            url: "http://127.0.0.1:8080/api/addCart",
+            type: "post",
+            dataType: "json",
+            data: saveObj,
+        }).done((data)=>{
+            if(data.status==1){
+                layer.confirm(data.msg,{
+                    btn:["前往购物车","继续购物"]
+                },()=>{
+                    window.location="./cart.html";
+                })
+            }else{
+                layer.msg(data.msg,{icon:2})
+            }
+        });
+    })
+})
 
 //热销推荐 鼠标悬停 显示分享
 $(() => {
