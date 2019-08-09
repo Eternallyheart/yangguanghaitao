@@ -2,7 +2,8 @@
 $(() => {
     async function load() {
         let result = await $.get("http://127.0.0.1:8080/api/getCart", {
-            uid: JSON.parse($.cookie("userInfo"))[0].uid
+            uid: JSON.parse($.cookie("userInfo"))[0].uid,
+            token: JSON.parse($.cookie("token")) 
         })
         let strHtml = ``;
         result.forEach(el => {
@@ -74,12 +75,16 @@ $(() => {
                     pId: $(el).find("input[type=checkbox]").data("pid"),
                     pNum: obj[index],
                     pTime: Date.now(),
+                    token: JSON.parse($.cookie("token")) 
                 }
                 $.ajax({
                     url: "http://127.0.0.1:8080/api/modify",
                     type: "post",
+                    // headers: {
+                    //     "token": $.cookie("token"),
+                    // },
                     dataType: "json",
-                    data: saveObj
+                    data: saveObj,
                 }).done((data) => {
                     if (data.affectedRows >= 1) {
                         layer.msg("修改成功", {
@@ -111,6 +116,7 @@ $(() => {
             let saveObj = {
                 uId: JSON.parse($.cookie("userInfo"))[0].uid,
                 pId: $(this).parents(".cart_product").find("input[type=checkbox]").data("pid"),
+                token: JSON.parse($.cookie("token")) 
             }
             layer.confirm("确定要删除该商品码?", {
                 btn: ["yes", "no"]
@@ -120,18 +126,21 @@ $(() => {
                 $.ajax({
                     url: "http://127.0.0.1:8080/api/deleteCart",
                     type: "post",
-                    data: saveObj
+                    // headers: {
+                    //     "token": $.cookie("token"),
+                    // },
+                    data: saveObj,
                 }).done((data) => {
                     if (data.affectedRows >= 1) {
                         layer.msg("删除成功");
                     }
+                    if ($(".cart_product").length == 0) {
+                        $("#checkboxAll").prop("checked", false);
+                        $("#checkboxPlat").prop("checked", false);
+                    }
+                    delete_break();
                 })
             })
-            if ($(".cart_product").length == 0) {
-                $("#checkboxAll").prop("checked", false);
-                $("#checkboxPlat").prop("checked", false);
-            }
-            delete_break();
         })
 
         //选择删除操作
@@ -144,9 +153,10 @@ $(() => {
                     let saveObj = {
                         uId: JSON.parse($.cookie("userInfo"))[0].uid,
                         pId: null,
+                        token: JSON.parse($.cookie("token")) 
                     }
                     if ($(el).find("input[type=checkbox]").prop("checked")) {
-                        saveObj.pId=$(el).find("input[type=checkbox]").data("pid");
+                        saveObj.pId = $(el).find("input[type=checkbox]").data("pid");
                         $(el).remove();
                         $("#checkboxAll").prop("checked", false);
                         $("#checkboxPlat").prop("checked", false);
@@ -154,15 +164,19 @@ $(() => {
                     $.ajax({
                         url: "http://127.0.0.1:8080/api/deleteCart",
                         type: "post",
-                        data: saveObj
+                        // headers: {
+                        //     "token": $.cookie("token"),
+                        // },
+                        data: saveObj,
                     }).done((data) => {
                         if (data.affectedRows >= 1) {
                             layer.msg("删除成功");
                         }
+                         
                     })
                 });
             })
-            delete_break();
+            
         })
 
         function delete_break() {
@@ -195,6 +209,8 @@ $(() => {
     }).on("mouseleave", ".sun_cart_product", function () {
         $(".sun_cart_product").removeClass("current");
     })
+
+    
 })
 
 //购物车 全选 选择时 商品全选

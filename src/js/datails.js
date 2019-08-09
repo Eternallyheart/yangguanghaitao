@@ -5,13 +5,13 @@ $(() => {
     $("img").lazyload({
         placeholder: "./../images/loding.gif",
         effect: "fadeIn",
-        threshold: 200
+        threshold: 100
     })
 })
 
 //引入商品详情
 var globalData = null;
-
+var cloneImg = null;
 $(() => {
     function load() {
         if (window.location.search.indexOf("?") == -1 || window.location.search.indexOf("=") == -1) {
@@ -31,6 +31,8 @@ $(() => {
             $(".sale_num").text(data[0].pNum);
             $(".det_ch_stock").text(data[0].pStock);
             $(".su_con_pro_img").find("img").attr("data-original", `http://127.0.0.1:8080/${data[0].pImg[0]}`)
+            cloneImg = $(".details_middle").find("img").clone(true);
+            console.log(cloneImg)
         })
     }
     load();
@@ -115,11 +117,11 @@ $(() => {
 $(() => {
     // $(".select_address").text(localStorage.getItem("pro_address"));
     $(".select_address").text(JSON.parse($.cookie("pro_address")))
-    
+
     for (let i = 0; i < dsy.Items[0].length; i++) {
         $(".select_province").append(`<a href='javascript:;'>${dsy.Items[0][i]}</a>`);
     }
-    
+
     $(".select_province a").on("click", function () {
         let str = "0";
         $(".select_city a").remove();
@@ -220,46 +222,87 @@ $(() => {
 //点击加入购物车
 $(() => {
     $(".det_ch_join").on("click", function () {
-        let saveObj = {
-            uId: JSON.parse($.cookie("userInfo"))[0].uid,
-            pId: globalData.pId,
-            pName: globalData.pName,
-            pPrice: globalData.pPrice,
-            pOldPrice: globalData.pOldPrice,
-            pNum: $(".det_ch_cart").val(),
-            pImg: globalData.pImg[0],
-            pStock: globalData.pStock,
-            pTime: Date.now(),
-            pPerson: globalData.pPerson,
-            pTotal: globalData.pPrice * $(".det_ch_cart").val(),
-            pAddress: $(".select_address").text(),
-        };
-        $.ajax({
-            url: "http://127.0.0.1:8080/api/addCart",
-            type: "post",
-            dataType: "json",
-            data: saveObj,
-        }).done((data)=>{
-            if(data.status==1){
-                layer.confirm(data.msg,{
-                    btn:["前往购物车","继续购物"]
-                },()=>{
-                    window.location="./cart.html";
-                })
-            }else{
-                layer.msg(data.msg,{icon:2})
-            }
-        });
+        fly(cloneImg, ajax);
+        function ajax() {
+            let saveObj = {
+                uId: JSON.parse($.cookie("userInfo"))[0].uid,
+                pId: globalData.pId,
+                pName: globalData.pName,
+                pPrice: globalData.pPrice,
+                pOldPrice: globalData.pOldPrice,
+                pNum: $(".det_ch_cart").val(),
+                pImg: globalData.pImg[0],
+                pStock: globalData.pStock,
+                pTime: Date.now(),
+                pPerson: globalData.pPerson,
+                pTotal: globalData.pPrice * $(".det_ch_cart").val(),
+                pAddress: $(".select_address").text(),
+                token: JSON.parse($.cookie("token"))
+            };
+            $.ajax({
+                url: "http://127.0.0.1:8080/api/addCart",
+                type: "post",
+                dataType: "json",
+                // headers: {
+                //     "token": JSON.parse($.cookie("token")) 
+                // },
+                data: saveObj,
+            }).then((data) => {
+                if (data.status == 1) {
+                    layer.confirm(data.msg, {
+                        btn: ["前往购物车", "继续购物"]
+                    }, () => {
+                        window.location = "./cart.html";
+                    })
+                } else {
+                    layer.msg(data.msg, {
+                        icon: 2
+                    })
+                }
+            }, (err) => {
+                if (err) {
+                    layer.open({
+                        type: 2,
+                        title: '登录',
+                        shadeClose: true,
+                        shade: 0.8,
+                        area: ['500px', '500px'],
+                        content: './login.html' //iframe的url
+                    });
+                }
+            });
+        }
+
     })
+
+    function fly(cloneImg, callback) {
+        $("body").append(cloneImg);
+        cloneImg.css({
+            position: "absolute",
+            top: $(".details_middle").find("img").offset().top,
+            left: $(".details_middle").find("img").offset().left,
+        });
+        console.log($("#header").find(".cart_box").offset().top)
+        cloneImg.animate({
+            left: $("#header").find(".cart_box").offset().left,
+            top: $("#header").find(".cart_box").offset().top,
+            width: 30,
+            height: 30
+        }, 1000, () => {
+            cloneImg.remove();
+            if (callback) {
+                callback();
+            }
+        })
+    }
 })
 
 //热销推荐 鼠标悬停 显示分享
 $(() => {
-    $(".details_banner").find("figure").on("mouseenter", function () {
+    $(".details_banner").on("mouseenter", "figure", function () {
         $(this).append($(".banner_share"));
         $(".banner_share").show();
-    }).on("mouseleave", function () {
-        $(this).remove($(".banner_share"));
+    }).on("mouseleave", "figure", function () {
         $(".banner_share").hide();
     })
 })
@@ -270,7 +313,6 @@ $(() => {
         $(this).append($(".content_share"));
         $(".content_share").show();
     }).on("mouseleave", function () {
-        $(this).stop().remove($(".content_share"));
         $(".content_share").hide();
     })
 })
@@ -281,7 +323,6 @@ $(() => {
         $(this).append($(".relate_share"));
         $(".relate_share").show();
     }).on("mouseleave", function () {
-        $(this).remove($(".relate_share"));
         $(".relate_share").hide();
     })
 })

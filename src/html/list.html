@@ -8,7 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./../css/base.css">
     <link rel="stylesheet" href="./../css/list.css">
-    <script src="./../js/jquery-3.4.1.min.js"></script>
+    <script src="./../js/jquery.js"></script>
+    <script src="./../js/jquery.cookie.js"></script>
     <script src="./../js/list.js"></script>
 </head>
 
@@ -102,17 +103,7 @@
                 <!-- 侧边栏排行榜 开始 -->
                 <aside class="category_list category_banner">
                     <h2>销量排行榜</h2>
-                    <ul>
-                        <li>
-                            <span></span>
-                            <a href="">德国奶粉 喜宝 Hipp 喜宝有机益生菌3段 600g</a>
-                            <em class="firts_price">107.00</em>
-                        </li>
-                        <li><span></span><a href="">德国奶粉 喜宝 Hipp 喜宝有机益生菌3段 600g</a></li>
-                        <li><span></span><a href="">德国 奶粉 喜宝 Hipp 喜宝有机益生菌3段 600g</a></li>
-                        <li><span></span><a href="">德国 奶粉 爱他美 Apta 喜宝有机益生菌3段 600g</a></li>
-                        <li><span></span><a href="">德国 奶粉 喜宝 Hipp 喜宝有机益生菌3段 600g</a></li>
-                        <li><span></span><a href="">德国 奶粉 爱他美 Apta 喜宝有机益生菌3段 600g</a></li>
+                    <ul class="rank_list">
                     </ul>
                 </aside>
                 <!-- 侧边栏排行榜 结束 -->
@@ -121,39 +112,6 @@
                 <aside class="category_list category_history f12">
                     <h2>浏览过的商品</h2>
                     <ul class="browse_ware">
-                        <figure>
-                            <a href=""><img src="./../images/220_201708110900589490600.jpg" alt=""></a>
-                            <figcaption>
-                                <p>
-                                    <a href="">日本大王(GOO.N) 维E系列 拉拉裤 学步裤训练裤 女 XL38片(12-20kg) 包邮包税</a>
-                                </p>
-                                <li>
-                                    <b>¥99.00</b><span>¥119.00</span>
-                                </li>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href=""><img src="./../images/220_201708110900589490600.jpg" alt=""></a>
-                            <figcaption>
-                                <p>
-                                    <a href="">日本大王(GOO.N) 维E系列 拉拉裤 学步裤训练裤 女 XL38片(12-20kg) 包邮包税</a>
-                                </p>
-                                <li>
-                                    <b>¥99.00</b><span>¥119.00</span>
-                                </li>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href=""><img src="./../images/220_201708110900589490600.jpg" alt=""></a>
-                            <figcaption>
-                                <p>
-                                    <a href="">日本大王(GOO.N) 维E系列 拉拉裤 学步裤训练裤 女 XL38片(12-20kg) 包邮包税</a>
-                                </p>
-                                <li>
-                                    <b>¥99.00</b><span>¥119.00</span>
-                                </li>
-                            </figcaption>
-                        </figure>
                     </ul>
                     <p>
                         <a href="javascript:;" class="delete_history">清除我的浏览记录</a>
@@ -232,10 +190,10 @@
                         </p>
                     </form>
                     <li>
-                        <a href="">价格<i class="iconfont icon-web-icon-1"></i></a>
-                        <a href="">销量<i class="iconfont icon-web-icon-1"></i></a>
-                        <a href="">人气<i class="iconfont icon-web-icon-1"></i></a>
-                        <a href="">时间<i class="iconfont icon-web-icon-1"></i></a>
+                        <a href="javascript:;">价格<i class="iconfont icon-web-icon-1"></i></a>
+                        <a href="javascript:;">销量<i class="iconfont icon-web-icon-1"></i></a>
+                        <a href="javascript:;">人气<i class="iconfont icon-web-icon-1"></i></a>
+                        <a href="javascript:;">时间<i class="iconfont icon-web-icon-1"></i></a>
                         <span>总共有<b>12</b>件商品,20件商品为一页,共<b>1</b>页第<b>1</b>页</span>
                     </li>
                 </nav>
@@ -243,7 +201,7 @@
 
                 <!-- 商品列表 开始 -->
                 <main class="category_substance f12">
-                   
+
                 </main>
                 <!-- 商品列表 结束 -->
 
@@ -258,7 +216,7 @@
                         <span><a href="">确定</a></span>
                     </ul>
                 </footer>
-                 <!-- 商品列表分页 结束 -->
+                <!-- 商品列表分页 结束 -->
             </section>
             <!-- 右侧主体内容 结束 -->
         </main>

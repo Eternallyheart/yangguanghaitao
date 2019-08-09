@@ -81,12 +81,15 @@ body {
     background: none;
 }
 
-.sun_list .category_banner li:first-of-type {
+.sun_list .category_banner .rank_firset {
     height: 100px;
     padding-top: 10px;
-    background: url(./../images/60_201706061342371184160.png) no-repeat 30px center;
+    /* background: url(./../images/60_201706061342371184160.png) no-repeat 30px center; */
 }
 
+.sun_list .category_banner .rank_none{
+    display: none;
+}
 .category_banner li span {
     display: block;
     width: 20px;

@@ -2,6 +2,8 @@
 import express from 'express';
 import db from './../modules/DBHelper';
 import fs from 'fs';
+
+import jwt from 'jsonwebtoken';
 // import impAsync from 'async';
 
 //2.创建保安
@@ -23,6 +25,7 @@ router.post("/checkEmail", (req, res, next) => {
 	})
 })
 
+global.keys = "useKer.cn"
 //3.创建登录连接
 router.post("/login", (req, res, next) => {
 	let sql = "SELECT `uid`,`uemail`,`urelname`,`usex`,`ubirthday` FROM userinfo WHERE uemail=? AND upwd=?";
@@ -32,10 +35,14 @@ router.post("/login", (req, res, next) => {
 		status: -1,
 	}
 	db.query(sql, params).then((result) => {
-		if (result.length == 1) {
+		if (result.length >= 1) {
 			resultObj.msg = '登录成功';
 			resultObj.status = 1;
 			resultObj.data = result;
+			let token = jwt.sign(resultObj, global.keys, {
+				expiresIn: 30 * 60
+			});
+			resultObj.token = token;
 		} else {
 			resultObj.msg = '用户名或密码错误';
 			resultObj.status = -2;
@@ -179,15 +186,15 @@ router.get("/getCart", async (req, res, next) => {
 //10创建连接 改变数据库中商品的数量
 router.post("/modify", async (req, res, next) => {
 	let sql = "UPDATE carts SET pNum=?,pTotal=pNum*pPrice,pTime=?,pStock=pStock-pNum WHERE uId=? AND pId=? ;";
-	let params = [req.body.pNum,req.body.pTime,req.body.uId,req.body.pId];
+	let params = [req.body.pNum, req.body.pTime, req.body.uId, req.body.pId];
 	const result = await db.query(sql, params);
 	res.json(result);
 })
 
-//10创建连接 在数据库删除用户选中的商品
+//11创建连接 在数据库删除用户选中的商品
 router.post("/deleteCart", async (req, res, next) => {
 	let sql = "DELETE FROM carts WHERE uId=? AND pId=? ;";
-	let params = [req.body.uId,req.body.pId];
+	let params = [req.body.uId, req.body.pId];
 	const result = await db.query(sql, params);
 	res.json(result);
 })

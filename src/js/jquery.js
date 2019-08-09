@@ -1444,7 +1444,6 @@ Sizzle.matchesSelector = function( elem, expr ) {
 	if ( ( elem.ownerDocument || elem ) !== document ) {
 		setDocument( elem );
 	}
-
 	// Make sure that attribute selectors are quoted
 	expr = expr.replace( rattributeQuotes, "='$1']" );
 
