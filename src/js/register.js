@@ -29,7 +29,7 @@ $(() => {
     $("form").validate({
         submitHandler() {
             $.ajax({
-                url: "http://127.0.0.1:8080/api/reg",
+                url: "./../../api/reg",
                 type: "post",
                 dataType: "json",
                 data: {
@@ -68,7 +68,7 @@ $(() => {
                 required: true,
                 email: true,
                 remote: {
-                    url: "http://127.0.0.1:8080/api/checkEmail",
+                    url: "./../../api/checkEmail",
                     type: "post",
                     dataType: "json",
                     data: {

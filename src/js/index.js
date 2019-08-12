@@ -1,5 +1,7 @@
 $(() => {
-    $("#header").load("./html/header_index.html");
+    $("#header").load("./html/header_index.html",function(){
+        console.log( $(".nav_list"))
+    });
     $("#footer").load("./html/footer_index.html");
     $("#aside").load("./html/aside_index.html");
     $("img").lazyload({
@@ -22,7 +24,6 @@ $(() => {
     }
     let timer = setInterval(autoPlay, 3000);
     $(".banner_show>span").on("click", function () {
-        console.log($(this).index());
         clearInterval(timer);
         index = $(this).index() - 1;
         autoPlay();

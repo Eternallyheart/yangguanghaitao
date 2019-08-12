@@ -1,13 +1,24 @@
 $(() => {
     $("form").on("submit", function () {
         if ($("form")[0].uemail.value) {
+            let sendObj={
+                uemail:$("form")[0].uemail.value,
+                upwd:$.md5($("form")[0].upwd.value),
+            }
             let saveObj={
                 uemail:$("form")[0].uemail.value,
                 upwd:$.md5($("form")[0].upwd.value),
             }
+            
+// {/* <script>
+//     var encrypted = CryptoJS.DES.encrypt("Message", "Secret Passphrase");
+
+//     var decrypted = CryptoJS.DES.decrypt(encrypted, "Secret Passphrase");
+// </script> */}
+
             $.ajax({
-                url: 'http://127.0.0.1:8080/api/login',
-                data:saveObj,
+                url: './../../api/login',
+                data:sendObj,
                 type: "post",
                 dataType: "json",
                 // header:{
@@ -27,6 +38,7 @@ $(() => {
                     $.cookie("token", JSON.stringify(data.token), {
                         expires: 10
                     })
+                    localStorage.setItem("token", JSON.stringify(data.token));
                     layer.msg(data.msg);
                     setTimeout(() => {
                         window.location = "./../index.html";

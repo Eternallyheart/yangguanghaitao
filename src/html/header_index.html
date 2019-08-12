@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./iconfont/iconfont.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <script src="./js/jquery.js"></script>
-    <script src="./js/jquery.cookie.js"></script>
-    <script src="./js/header.js"></script>
-</head>
-
-<body>
     <section class="sun_header">
         <header class="f14">
             <div class="welcome container">
@@ -36,7 +20,7 @@
             <li class="fr f14 cart_box">
                 <a href="./html/cart.html">
                     <i class="iconfont icon-ai-cart"></i>购物车
-                    <span>0</span>件
+                    <span class="cart_num">0</span>件
                     <i class="iconfont icon-youjiantou"></i>
                 </a>
             </li>
@@ -357,6 +341,38 @@
             <li> <a href="./html/list.html">运动户外</a></li>
         </nav>
     </section>
-</body>
-
-</html>
+    <script>
+        $(function () {
+            $(".nav_list>a").on("mouseenter", function () {
+                $(this).addClass("current").siblings().removeClass("current");
+                $(".nav_menu1").eq($(this).index()).addClass("current").siblings().removeClass(
+                    "current");
+            }).on("mouseleave", function () {
+                $(".nav_list>a").removeClass("current");
+            })
+            $(".nav_list").on("mouseleave", function () {
+                $(".nav_list>a").removeClass("current");
+                $(".nav_menu1").removeClass("current");
+            });
+            if (JSON.parse(localStorage.getItem("userInfo"))) {
+                $.ajax({
+                    url: "./../../api/getCart",
+                    type: "get",
+                    dataType: "json",
+                    headers: {
+                        token: JSON.parse(localStorage.getItem("token"))
+                    },
+                    data: {
+                        uid: JSON.parse(localStorage.getItem("userInfo") || '[]')[0].uid,
+                        // token: JSON.parse(localStorage.getItem("token"))
+                    },
+                }).done(data => {
+                    let strNum = 0;
+                    data.forEach(el => {
+                        strNum += el.pNum - 0;
+                    })
+                    $(".cart_num").text(strNum);
+                })
+            }
+        })
+    </script>

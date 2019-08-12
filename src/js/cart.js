@@ -1,19 +1,20 @@
 //页面加载就显示读取登录的用户的购物车列表
 $(() => {
     async function load() {
-        let result = await $.get("http://127.0.0.1:8080/api/getCart", {
+        let result = await $.get("./../../api/getCart", {
             uid: JSON.parse($.cookie("userInfo"))[0].uid,
-            token: JSON.parse($.cookie("token")) 
+            token: JSON.parse($.cookie("token"))
         })
+
         let strHtml = ``;
         result.forEach(el => {
             strHtml += `<div class="cart_product">
                 <div class="sun_cart_product">
                     <div><input type="checkbox" data-pId=${el.pId}></div>
                     <div class="sun_cart_goods">
-                        <ul><a href="http://127.0.0.1:5500/src/html/datails.html?pId=${el.pId}" target="_new"><img src="http://127.0.0.1:8080/${el.pImg}" alt=""></a></ul>
+                        <ul><a href="./../../src/html/datails.html?pId=${el.pId}" target="_new"><img src="./../../${el.pImg}" alt=""></a></ul>
                         <ul>
-                            <a href="http://127.0.0.1:5500/src/html/datails.html?pId=${el.pId}" target="_new">${el.pName}</a>
+                            <a href="./../../src/html/datails.html?pId=${el.pId}" target="_new">${el.pName}</a>
                             <li>包装规格：<span>10号4瓶</span>;</li>
                             <li>支持自提</li>
                         </ul>
@@ -75,10 +76,10 @@ $(() => {
                     pId: $(el).find("input[type=checkbox]").data("pid"),
                     pNum: obj[index],
                     pTime: Date.now(),
-                    token: JSON.parse($.cookie("token")) 
+                    token: JSON.parse($.cookie("token"))
                 }
                 $.ajax({
-                    url: "http://127.0.0.1:8080/api/modify",
+                    url: "./../../api/modify",
                     type: "post",
                     // headers: {
                     //     "token": $.cookie("token"),
@@ -116,7 +117,7 @@ $(() => {
             let saveObj = {
                 uId: JSON.parse($.cookie("userInfo"))[0].uid,
                 pId: $(this).parents(".cart_product").find("input[type=checkbox]").data("pid"),
-                token: JSON.parse($.cookie("token")) 
+                token: JSON.parse($.cookie("token"))
             }
             layer.confirm("确定要删除该商品码?", {
                 btn: ["yes", "no"]
@@ -124,7 +125,7 @@ $(() => {
                 layer.close(index);
                 $(this).parent().parent().parent().remove();
                 $.ajax({
-                    url: "http://127.0.0.1:8080/api/deleteCart",
+                    url: "./../../api/deleteCart",
                     type: "post",
                     // headers: {
                     //     "token": $.cookie("token"),
@@ -153,7 +154,7 @@ $(() => {
                     let saveObj = {
                         uId: JSON.parse($.cookie("userInfo"))[0].uid,
                         pId: null,
-                        token: JSON.parse($.cookie("token")) 
+                        token: JSON.parse($.cookie("token"))
                     }
                     if ($(el).find("input[type=checkbox]").prop("checked")) {
                         saveObj.pId = $(el).find("input[type=checkbox]").data("pid");
@@ -162,7 +163,7 @@ $(() => {
                         $("#checkboxPlat").prop("checked", false);
                     }
                     $.ajax({
-                        url: "http://127.0.0.1:8080/api/deleteCart",
+                        url: "./../../api/deleteCart",
                         type: "post",
                         // headers: {
                         //     "token": $.cookie("token"),
@@ -171,12 +172,12 @@ $(() => {
                     }).done((data) => {
                         if (data.affectedRows >= 1) {
                             layer.msg("删除成功");
+                            delete_break()
                         }
-                         
                     })
                 });
             })
-            
+
         })
 
         function delete_break() {
@@ -202,6 +203,8 @@ $(() => {
     load();
 })
 
+
+
 //购物车商品 鼠标悬停 背景切换
 $(() => {
     $(".sun_cart_content").on("mouseenter", ".sun_cart_product", function () {
@@ -209,8 +212,6 @@ $(() => {
     }).on("mouseleave", ".sun_cart_product", function () {
         $(".sun_cart_product").removeClass("current");
     })
-
-    
 })
 
 //购物车 全选 选择时 商品全选
@@ -242,7 +243,7 @@ $(() => {
         $("#checkboxAll").trigger('click');
     })
 
-    $(".sun_cart_content").on("click", ".sun_cart_product input", function () {
+    $(".sun_cart_content").on("click", ".sun_cart_product input[type]", function () {
         let flag = true;
         $(".sun_cart_product").find("input").each((index, el) => {
             if (!$(el).prop("checked")) {

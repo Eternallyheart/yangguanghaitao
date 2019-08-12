@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 import jwt from "jsonwebtoken";
 
@@ -14,7 +15,8 @@ import {
 const app = express();
 
 //4.使用中间件 
-app.use(cookieParser("userker.cn"));
+app.use(cookieParser("userker.cn"));//创建签名
+app.use(cors());
 
 //5.使用cookieSession 加密
 app.use(cookieSession({
@@ -39,13 +41,28 @@ let whiteList = ["/api/login", "/api/reg", "/api/goods", "/api/checkEmail"]
 app.all("*", (req, res, next) => {
     res.header("Content-Type", "application/json;charset=utf-8");
     res.header("Access-Control-Allow-Origin", "*");
-    // res.header("Access-Control-Allow-Headers", "x-requested-with,content-type");
+    // res.header("Access-Control-Allow-Headers", "token,x-requested-with,content-type");
+    
     // res.header("X-Powered-By", '3.2.1');
     // res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     let token = req.body.token || req.query.token || req.headers.token;
-    if (whiteList.indexOf(req.originalUrl) != -1 || req.originalUrl.indexOf("/api/goods?pId=") != -1|| req.originalUrl.indexOf("/api/getCart?uid=") != -1) {
+
+    if (whiteList.indexOf(req.originalUrl) != -1 || req.originalUrl.indexOf("/api/goods?pId=") != -1) {
         next();
     } else {
+        if (req.originalUrl.indexOf("/api/getCart?uid=") != -1) {
+            if (token) {
+                testToken()
+            } else {
+                next()
+            }
+            // token?testToken():next();
+        } else {
+            testToken()
+        }
+    }
+
+    function testToken() {
         jwt.verify(token, global.keys, function (err, data) {
             if (err) {
                 res.status(404).json({

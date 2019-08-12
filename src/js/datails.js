@@ -17,22 +17,21 @@ $(() => {
         if (window.location.search.indexOf("?") == -1 || window.location.search.indexOf("=") == -1) {
             return;
         }
-        $.get("http://127.0.0.1:8080/api/goods" + window.location.search, (data) => {
+        $.get("./../../api/goods" + window.location.search, (data) => {
             globalData = data[0];
             $(".header_name").text(data[0].pName);
-            $(".details_middle").append(`<img src="http://127.0.0.1:8080/${data[0].pImg[0]}" alt="">`);
-            $(".details_bigImg").append(`<img src="http://127.0.0.1:8080/${data[0].pImg[0]}" alt="">`);
+            $(".details_middle").append(`<img src="./../../${data[0].pImg[0]}" alt="">`);
+            $(".details_bigImg").append(`<img src="./../../${data[0].pImg[0]}" alt="">`);
             data[0].pImg.forEach((el) => {
-                $(".details_allImg").append(`<li><img src="http://127.0.0.1:8080/${el}" alt=""></li>`)
+                $(".details_allImg").append(`<li><img src="./../../${el}" alt=""></li>`)
             });
             $(".details_choice").find("h2").text(data[0].pName);
             $(".det_ch_oldPrice").text("¥" + data[0].pOldPrice);
             $(".det_ch_newPrice").text("¥" + data[0].pPrice);
             $(".sale_num").text(data[0].pNum);
             $(".det_ch_stock").text(data[0].pStock);
-            $(".su_con_pro_img").find("img").attr("data-original", `http://127.0.0.1:8080/${data[0].pImg[0]}`)
+            $(".su_con_pro_img").find("img").attr("data-original", `./../../${data[0].pImg[0]}`)
             cloneImg = $(".details_middle").find("img").clone(true);
-            console.log(cloneImg)
         })
     }
     load();
@@ -116,7 +115,9 @@ $(() => {
 //点击切换地址
 $(() => {
     // $(".select_address").text(localStorage.getItem("pro_address"));
-    $(".select_address").text(JSON.parse($.cookie("pro_address")))
+    if ($.cookie("pro_address")) {
+        $(".select_address").text(JSON.parse($.cookie("pro_address")));
+    }
 
     for (let i = 0; i < dsy.Items[0].length; i++) {
         $(".select_province").append(`<a href='javascript:;'>${dsy.Items[0][i]}</a>`);
@@ -222,7 +223,19 @@ $(() => {
 //点击加入购物车
 $(() => {
     $(".det_ch_join").on("click", function () {
-        fly(cloneImg, ajax);
+        if ($.cookie("userInfo")) {
+            fly(cloneImg, ajax);
+        }else{
+            layer.open({
+                type: 2,
+                title: '登录',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['500px', '500px'],
+                content: './login.html' //iframe的url
+            });
+        }
+
         function ajax() {
             let saveObj = {
                 uId: JSON.parse($.cookie("userInfo"))[0].uid,
@@ -240,7 +253,7 @@ $(() => {
                 token: JSON.parse($.cookie("token"))
             };
             $.ajax({
-                url: "http://127.0.0.1:8080/api/addCart",
+                url: "./../../api/addCart",
                 type: "post",
                 dataType: "json",
                 // headers: {
@@ -282,7 +295,6 @@ $(() => {
             top: $(".details_middle").find("img").offset().top,
             left: $(".details_middle").find("img").offset().left,
         });
-        console.log($("#header").find(".cart_box").offset().top)
         cloneImg.animate({
             left: $("#header").find(".cart_box").offset().left,
             top: $("#header").find(".cart_box").offset().top,

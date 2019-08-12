@@ -319,6 +319,9 @@ body {
     text-align: center;
     border-right: 1px solid #dbdbdb;
 }
+.sun_list .category_search li a.redColor {
+    color: red;
+}
 
 .sun_list .category_search li a i {
     margin-left: 5px;

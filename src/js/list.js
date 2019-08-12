@@ -14,13 +14,13 @@ $(() => {
 //加载就读取数据形成列表
 $(() => {
     $.get({
-        url: "http://127.0.0.1:8080/api/goods"
+        url: "./../../api/goods"
     }, (data) => {
         const goodsList = data;
         let arr = [];
         goodsList.forEach((el) => {
             let strHtml = `<figure>
-        <a href="./datails.html?pId=${el.pId}" target="_new"><img src="http://127.0.0.1:8080/${el.pImg[0]}" alt=""></a>
+        <a href="./datails.html?pId=${el.pId}" target="_new"><img src="./../../${el.pImg[0]}" alt=""></a>
         <figcaption>
                 <p>
                     <a href="./datails.html?pId=${el.pId}" target="_new">${el.pName}</a>
@@ -36,7 +36,7 @@ $(() => {
             $(".category_substance").append($(strHtml));
             arr.push(el.pNum - 0);
         })
-        
+
         arr.sort((n1, n2) => {
             return n2 - n1;
         }).splice(6)
@@ -63,21 +63,21 @@ $(() => {
         $(".rank_list").append(strRank);
 
         $(".rank_firset").css({
-            background: `url(http://127.0.0.1:8080/${$(".rank_none").data("pimg")}) no-repeat 25px 10px/65px`
+            background: `url(./../../${$(".rank_none").data("pimg")}) no-repeat 25px 10px/65px`
         })
 
-        var saveList=[];
-        $(".category_substance").children("figure").on("click","a",function(el){
-            let saveObj={
-                url:$(el.delegateTarget).find("img").attr("src"),
-                pName:$(el.delegateTarget).find("p a").text(),
-                pPrice:$(el.delegateTarget).find(".pPrice").text(),
-                pOldPrice:$(el.delegateTarget).find(".pOldPrice").text(),
-                href:$(el.delegateTarget).find("a").attr("href")
+        $(".category_substance").children("figure").on("click", "a", function (el) {
+            let saveList = JSON.parse(localStorage.getItem("historyList") || '[]');
+            let saveObj = {
+                url: $(el.delegateTarget).find("img").attr("src"),
+                pName: $(el.delegateTarget).find("p a").text(),
+                pPrice: $(el.delegateTarget).find(".pPrice").text(),
+                pOldPrice: $(el.delegateTarget).find(".pOldPrice").text(),
+                href: $(el.delegateTarget).find("a").attr("href")
             };
             saveList.unshift(saveObj);
             saveList.splice(3);
-            localStorage.setItem("historyList",JSON.stringify(saveList));
+            localStorage.setItem("historyList", JSON.stringify(saveList));
         })
     })
 
@@ -86,7 +86,14 @@ $(() => {
     $(".category_search>li>a").each((index, el) => {
         let flag = true;
         $(el).on('click', function () {
-            flag = flag ? false : true;
+            if (flag) {
+                flag = false;
+                $(this).find("i").removeClass("icon-web-icon-1").addClass("icon-xiajiang");
+            } else {
+                flag = true;
+                $(this).find("i").removeClass("icon-xiajiang").addClass("icon-web-icon-1");
+            }
+            $(this).addClass("redColor").siblings().removeClass("redColor");
             sort(cls[index], flag);
         })
     })
@@ -147,11 +154,13 @@ $(() => {
             $(".category_substance").append(strHtml);
         }
     }
-   
-    let historyObj=JSON.parse(localStorage.getItem("historyList"));
-    let historyHtml=``;
-    historyObj.forEach(el=>{
-        historyHtml+=`<figure>
+
+
+    if (localStorage.getItem("historyList")) {
+        let historyObj = JSON.parse(localStorage.getItem("historyList") || '[]');
+        let historyHtml = ``;
+        historyObj.forEach(el => {
+            historyHtml += `<figure>
         <a href="${el.href}" target="_blank"><img src="${el.url}" alt=""></a>
         <figcaption>
             <p>
@@ -161,7 +170,9 @@ $(() => {
                 <b>${el.pPrice}</b><span>${el.pOldPrice}</span>
             </li>
         </figcaption>
-    </figure>`
-    })
-    $(".browse_ware").append(historyHtml);
+        </figure>`
+        })
+        $(".browse_ware").append(historyHtml);
+    }
+
 })

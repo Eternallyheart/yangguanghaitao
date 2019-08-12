@@ -1,60 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/aside.css">
-    <link rel="stylesheet" href="./iconfont/iconfont.css">
-    <script src="./js/jquery.js"></script>
-    <script src="./js/jquery.cookie.js"></script>
-    <script src="./js/aside.js"></script>
-</head>
-
-<body>
-    <div class="sun_aside">
-        <aside>
-            <div class="toolbar f12">
-                <div class="toolbar_person">
-                    <a href="./login.html"><i class="iconfont icon-ren2"></i></a>
-                </div>
-                <div class="user"><a href="">用户中心</a></div>
-                <div class="toolbar_person toolbar_cart">
-                    <a href="./cart.html"><i class="iconfont icon-gouwuchekong"></i></a>
-                </div>
-                <div class="user cart"><a href="./cart.html">购物车</a></div>
-                <div class="toolbar_person toolbar_coupon">
-                    <a href=""><i class="iconfont icon-icon_coupon"></i></a>
-                </div>
-                <div class="user coupon"><a href="./cart.html">优惠券</a></div>
+<div class="sun_aside">
+    <aside>
+        <div class="toolbar f12">
+            <div class="toolbar_person">
+                <a href="./login.html"><i class="iconfont icon-ren2"></i></a>
             </div>
-            <div class="toolbar_person toolbar_scroll">
-                <a href="javascropt:;"><i class="iconfont icon-shangla"></i></a>
+            <div class="user"><a href="">用户中心</a></div>
+            <div class="toolbar_person toolbar_cart">
+                <a href="./cart.html"><i class="iconfont icon-gouwuchekong"></i></a>
             </div>
-            <div class="scroll f12"><a href="">回到顶部</a></div>
-            <div class="toolbar_chat">
-                <i class="iconfont icon-IMliaotian"></i>
-                我们在线,来聊聊天吧
+            <div class="user cart"><a href="./cart.html">购物车</a></div>
+            <div class="toolbar_person toolbar_coupon">
+                <a href=""><i class="iconfont icon-icon_coupon"></i></a>
             </div>
-        </aside>
-        <section class="chatBox">
-            <header>
-                <li><img src="./images/robotservice.png" alt="">机器人客服</li>
-                <li>
-                    <a href=""><i class="iconfont icon-laba"></i></a>
-                    <a href=""><i class="iconfont icon-xiala"></i></a>
-                </li>
-            </header>
-            <main class="chat_main">
-            </main>
-            <footer>
-                <textarea class="chat_area"></textarea>
-            </footer>
-        </section>
-    </div>
-</body>
+            <div class="user coupon"><a href="./cart.html">优惠券</a></div>
+        </div>
+        <div class="toolbar_person toolbar_scroll">
+            <a href="javascropt:;"><i class="iconfont icon-shangla"></i></a>
+        </div>
+        <div class="scroll f12"><a href="">回到顶部</a></div>
+        <div class="toolbar_chat">
+            <i class="iconfont icon-IMliaotian"></i>
+            我们在线,来聊聊天吧
+        </div>
+    </aside>
+    <section class="chatBox">
+        <header>
+            <li><img src="./images/robotservice.png" alt="">机器人客服</li>
+            <li>
+                <a href=""><i class="iconfont icon-laba"></i></a>
+                <a href=""><i class="iconfont icon-xiala"></i></a>
+            </li>
+        </header>
+        <main class="chat_main">
+        </main>
+        <footer>
+            <textarea class="chat_area"></textarea>
+        </footer>
+    </section>
+</div>
+<script>
+    $(() => {
+        $(".toolbar_person").on("mouseenter", function () {
+            $(this).find("a").addClass("current").parent().siblings(".toolbar_person").children("a")
+                .removeClass("current");
+            if ($(this).index() == 2) {
+                $(".user").eq(1).show().stop().animate({
+                    right: 35
+                }).siblings(".user").hide().stop().animate({
+                    right: -35
+                });
+                $(".user").eq(1).addClass("current").siblings(".user").removeClass("current");
+            } else if ($(this).index() == 0) {
+                $(".user").eq(0).show().stop().animate({
+                    right: 35
+                }).siblings(".user").hide().stop().animate({
+                    right: -35
+                });
+                $(".user").eq(0).addClass("current").siblings(".user").removeClass("current");
+            } else if ($(this).index() == 4) {
+                $(".user").eq(2).show().stop().animate({
+                    right: 35
+                }).siblings(".user").hide().stop().animate({
+                    right: -35
+                });
+                $(".user").eq(2).show().addClass("current").siblings(".user").removeClass("current");
+            }
+        })
+        $(".toolbar").on("mouseleave", function () {
+            $(".toolbar_person").find("a").removeClass("current");
+            $(".user").hide().stop().animate({
+                right: -35
+            });
+        })
+        $(".toolbar_scroll").on("mouseenter", function () {
+            $(".scroll").show().addClass("current").stop().animate({
+                right: 220
+            });
+        }).on("mouseleave", function () {
+            $(".toolbar_person").find("a").removeClass("current");
+            $(".scroll").hide().removeClass("current").stop().animate({
+                right: 150
+            });
+        })
+    })
 
-</html>
+    $(() => {
+        $(".toolbar_scroll").on("click", function () {
+            $(window).scrollTop(0);
+        })
+
+        $(".toolbar_coupon").on("click", function () {
+            $(this).find("a").css("backgroundColor", "red");
+            $("aside").stop().animate({
+                right: 0
+            });
+            $(".user").stop().animate({
+                right: -235
+            }).hide();
+            $(".scroll").stop().animate({
+                right: 160
+            }).hide();;
+            return false;
+        }).on("click", function () {
+            $(this).off();
+        })
+
+    })
+</script>
